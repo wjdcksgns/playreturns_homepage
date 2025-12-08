@@ -2,7 +2,7 @@
   "name": "playreturns_homepage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/playreturns_homepage",
+  "homepage": "https://playreturns.co.kr",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.10.5",
