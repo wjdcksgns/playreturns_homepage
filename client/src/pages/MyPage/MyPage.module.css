@@ -1,0 +1,108 @@
+.titleBox {
+  margin-bottom: 50px;
+}
+
+.titleBox h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.userBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  color: var(--color-gy);
+  background: var(--alpha-wh-7);
+  border: 2px solid var(--alpha-bk-3);
+  border-radius: 10px;
+}
+
+.userBox > * {
+  padding: 10px;
+}
+
+.userBox dt {
+  width: 35%;
+  border-right: 2px solid var(--alpha-bk-3);
+  border-bottom: 2px solid var(--alpha-bk-3);
+  word-break: keep-all;
+}
+
+.userBox dd {
+  width: 65%;
+  border-bottom: 2px solid var(--alpha-bk-3);
+  word-break: break-all;
+}
+
+.userBox dt:last-of-type,
+.userBox dd:last-of-type {
+  border-bottom: 0;
+}
+
+.btnBox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputGroup {
+  min-width: 500px;
+}
+
+.errMsg {
+  font-size: 14px;
+  color: var(--color-rd);
+  text-align: right;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .titleBox,
+  .userBox {
+    margin-bottom: 30px;
+  }
+
+  .titleBox h2 {
+    font-size: 22px;
+  }
+
+  .userBox {
+    border-radius: 8px;
+  }
+
+  .userBox > * {
+    padding: 8px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .titleBox,
+  .userBox {
+    margin-bottom: 25px;
+  }
+
+  .btnBox {
+    gap: 15px;
+  }
+  
+  .inputGroup {
+    min-width: 70vw;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .titleBox h2 {
+    font-size: 20px;
+  }
+
+  .btnBox {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .inputGroup {
+    min-width: 100%;
+  }
+}

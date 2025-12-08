@@ -1,0 +1,15 @@
+.dataTable {
+  width: 100%;
+  height: auto;
+}
+
+.datasetTime {
+  text-align: center;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

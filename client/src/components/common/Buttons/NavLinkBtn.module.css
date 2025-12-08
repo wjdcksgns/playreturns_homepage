@@ -1,0 +1,41 @@
+.btnNavLink {
+  display: inline-block;
+  color: var(--color-wh);
+  font-size: 20px;
+  transition: color .3s;
+}
+
+.btnNavLink.active,
+.btnNavLink:hover {
+  color: var(--color-light-pk);
+}
+
+.btnNavLink[href="/my_page"] {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-light-pk);
+}
+
+.tooltip {
+  position: absolute;
+  width: max-content;
+  display: none;
+  background: var(--alpha-wh-9);
+  color: var(--color-bk);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .btnNavLink {
+    display: block;
+    color: var(--color-gy);
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

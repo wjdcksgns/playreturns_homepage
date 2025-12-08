@@ -1,0 +1,74 @@
+.colorTool {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputColor {
+  position: relative;
+  background: var(--color-wh);
+  border-radius: 50%;
+}
+
+.inputColor input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.inputColor label {
+  position: relative;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.inputColor input:checked + label,
+.inputColor input[id="color"]:checked ~ .colorPicker {
+  box-shadow: 0 0 0 7px var(--color-sb);
+}
+
+.colorPicker {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  appearance: none;
+  z-index: 0;
+}
+
+.colorPicker::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+.colorPicker::-webkit-color-swatch {
+	border: 0;
+  border-radius: 50%;
+}
+
+.colorPicker + label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.colorInfo {
+  font-size: 14px;
+  color: var(--color-gy);
+}

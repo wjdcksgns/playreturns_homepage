@@ -1,0 +1,73 @@
+.detectionSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraCtrl {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.switchLabel {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.detectionBox {
+  position: relative;
+  width: 100%;
+}
+
+.detectionBox video {
+  position: relative;
+  width: 100%;
+}
+
+.detectionBox video.reverseMode {
+  transform: scaleX(-1);
+}
+
+.detectionCamera {
+  display: none;
+}
+
+.detectionCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  font-size: 20px;
+  color: var(--color-gy);
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .infoBox {
+    gap: 20px;
+    font-size: 18px;
+  }
+  
+  .switchLabel > span {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .cameraCtrl {
+    margin-bottom: 5px;
+  }
+
+  .infoBox {
+    font-size: 16px;
+  }
+}

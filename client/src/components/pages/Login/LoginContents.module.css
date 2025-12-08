@@ -1,0 +1,29 @@
+.inputGroup {
+  margin-bottom: 50px;
+}
+
+.errorMsg {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 10px;
+  color: var(--color-rd);
+  margin-top: 20px;
+  margin-bottom: -20px;
+  font-size: 14px;
+}
+
+.errorMsg small {
+  margin-top: 2px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .inputGroup {
+    margin-bottom: 30px;
+  }
+
+  .errorMsg {
+    margin-top: 10px;
+    margin-bottom: -10px;
+  }
+}

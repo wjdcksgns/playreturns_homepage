@@ -1,0 +1,21 @@
+.tabMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 30px;
+  margin-bottom: 50px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .tabMenu {
+    gap: 0 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .tabMenu {
+    margin-bottom: 20px;
+  }
+}

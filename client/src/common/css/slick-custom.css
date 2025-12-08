@@ -1,0 +1,51 @@
+.slick-prev, .slick-next {
+  width: 30px;
+  height: 30px;
+}
+
+.slick-prev {
+  left: -30px;
+}
+
+.slick-next {
+  right: -30px;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: var(--color-lighter-pk);
+  font-size: 30px;
+  transition: all .3s;
+}
+
+.slick-dots {
+  position: relative;
+  bottom: 0;
+}
+
+.slick-dots li {
+  width: 25px;
+  height: 25px;
+  margin: 0 3px;
+}
+
+.slick-dots li button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slick-dots li button:before {
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--color-lighter-pk);
+  transform: translate(-50%, -50%);
+  transition: all .3s;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--color-lighter-pk);
+}

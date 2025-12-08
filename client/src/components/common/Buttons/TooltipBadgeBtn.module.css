@@ -1,0 +1,37 @@
+.tooltipBadge {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--alpha-bk-3);
+  border-radius: 30px;
+  background: var(--alpha-wh-5);
+  box-shadow: inset -2px -2px var(--alpha-bk-3);
+  transition: all .3s;
+}
+
+.tooltipBadge:hover {
+  box-shadow: inset 2px 2px var(--alpha-bk-3);
+}
+
+.btnTooltipBadge {
+  padding: 0 5px;
+  font-size: 14px;
+  color: var(--alpha-bk-7);
+  font-weight: 500;
+}
+
+.tooltipBadge:hover .btnTooltipBadge {
+  color: var(--alpha-bk-5);
+}
+
+.btnDeleteBadge {
+  display: flex;
+}
+
+.btnDeleteBadge > * {
+  color: var(--alpha-bk-5);
+}
+
+.tooltipBadge:hover .btnDeleteBadge > * {
+  color: var(--alpha-bk-3);
+}

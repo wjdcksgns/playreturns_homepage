@@ -1,0 +1,129 @@
+.inputGroup {
+  margin-bottom: 50px;
+}
+
+.completedInfo {
+  text-align: center;
+}
+
+.completeBox {
+  margin-bottom: 50px;
+}
+
+.checkIcon {
+  width: 70px !important;
+  height: 70px !important;
+  margin-bottom: 10px;
+  color: var(--color-light-pk);
+}
+
+.completeBox h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.completeBox p {
+  font-size: 18px;
+  color: var(--color-gy);
+}
+
+.userBox {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  color: var(--color-gy);
+  background: var(--alpha-wh-7);
+  border: 2px solid var(--alpha-bk-3);
+  border-radius: 10px;
+}
+
+.userBox > * {
+  padding: 10px;
+  word-break: break-all;
+}
+
+.userBox dt {
+  width: 30%;
+  border-right: 2px solid var(--alpha-bk-3);
+  border-bottom: 2px solid var(--alpha-bk-3);
+}
+
+.userBox dd {
+  width: 70%;
+  border-bottom: 2px solid var(--alpha-bk-3);
+}
+
+.userBox dt:last-of-type,
+.userBox dd:last-of-type {
+  border-bottom: 0;
+}
+
+.linkBox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .inputGroup,
+  .completeBox,
+  .userBox {
+    margin-bottom: 30px;
+  }
+
+  .checkIcon {
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 5px;
+  }
+
+  .completeBox h2 {
+    font-size: 22px;
+  }
+
+  .completeBox p {
+    font-size: 16px;
+  }
+
+  .userBox {
+    border-radius: 8px;
+  }
+
+  .userBox > * {
+    padding: 8px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .completeBox,
+  .userBox {
+    margin-bottom: 25px;
+  }
+
+  .linkBox {
+    gap: 15px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .checkIcon {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 0;
+  }
+
+  .completeBox h2 {
+    font-size: 20px;
+  }
+
+  .completeBox p {
+    font-size: 14px;
+  }
+
+  .linkBox {
+    gap: 10px;
+  }
+}

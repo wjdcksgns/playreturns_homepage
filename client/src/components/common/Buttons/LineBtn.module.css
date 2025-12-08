@@ -1,0 +1,43 @@
+.btnLine {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 5px 0;
+  transition: all .3s;
+}
+
+.btnLine:hover,
+.btnLine.active {
+  color: var(--color-pk);
+}
+
+.btnLine::after {
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--color-pk);
+  transform: translateX(-50%);
+  transition: all .3s;
+}
+
+.btnLine:hover::after,
+.btnLine.active::after {
+  width: 100%;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .btnLine {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .btnLine {
+    font-size: 16px;
+  }
+}

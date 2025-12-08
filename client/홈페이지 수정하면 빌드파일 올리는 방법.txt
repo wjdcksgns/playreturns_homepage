@@ -1,0 +1,12 @@
+D:\playreturns_homepage\client 경로에서 cmd 켜고 npm run build
+
+ssh again@203.249.17.112      (ssh 접속)
+sudo chown -R again:again /var/www/playreturns
+sudo chmod -R 755 /var/www/playreturns
+
+그리고 cmd 하나 켜서
+scp -r D:\playreturns_homepage\client\build\* again@203.249.17.112:/var/www/playreturns/
+
+다시 서버에서
+sudo chown -R www-data:www-data /var/www/playreturns
+sudo systemctl reload nginx

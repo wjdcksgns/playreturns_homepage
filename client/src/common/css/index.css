@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --color-bk: #191919;
+  --color-wh: #fff;
+  --color-dark-wh: #eee;
+  --color-lighter-gy: #ddd;
+  --color-light-gy: #e5e7eb;
+  --color-gy: #6a6a6a;
+  --color-dark-gy: #2b2b2b;
+  --color-lighter-pk: #ff8cc9;
+  --color-light-pk: #ff5798;
+  --color-pk: #e6006a;
+  --color-rd: #EB1D36;
+  --color-or: #FFBB00;
+  --color-yl: #FFE400;
+  --color-gn: #1DDB16;
+  --color-bl: #0054FF;
+  --color-nv: #050099;
+  --color-dark-nv: #040d21;
+  --color-pr: #5F00FF;
+  --color-sb: #ACEBFF;
+  --alpha-wh-0: rgba(255, 255, 255, .0);
+  --alpha-wh-1: rgba(255, 255, 255, .1);
+  --alpha-wh-3: rgba(255, 255, 255, .3);
+  --alpha-wh-5: rgba(255, 255, 255, .5);
+  --alpha-wh-7: rgba(255, 255, 255, .7);
+  --alpha-wh-9: rgba(255, 255, 255, .9);
+  --alpha-bk-0: rgba(0, 0, 0, 0);
+  --alpha-bk-1: rgba(0, 0, 0, .1);
+  --alpha-bk-3: rgba(0, 0, 0, .3);
+  --alpha-bk-5: rgba(0, 0, 0, .5);
+  --alpha-bk-7: rgba(0, 0, 0, .7);
+  --alpha-bk-9: rgba(0, 0, 0, .9);
+  --gradient-all-to-right: linear-gradient(to right, #ef9a9a, #f48fb1, #ce93d8, #b39ddb, #9fa8da, #90caf9, #81d4fa, #80deea, #80cbc4, #a5d6a7, #c5e1a5, #e6ee9c, #fff59d, #ffe082, #ffcc80, #ffab91);
+  --gradient-pk-to-right: linear-gradient(to right, var(--color-lighter-pk), var(--color-light-pk), var(--color-pk));
+  --gradient-rainbow-conic: conic-gradient(#FF0000, #FF5E00, #FFBB00, #FFE400, #ABF200, #1DDB16, #00D8FF, #0054FF, #0100FF, #5F00FF, #FF00DD, #FF007F);
+}
+
+body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--color-light-gy);
+  padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-light-pk);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-wh);
+  border-radius: 3px;
+}
+
+::selection {
+  background-color: var(--color-dark-gy);
+  color: var(--color-lighter-pk);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-light-pk);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--color-bk);
+  border-radius: 0;
+}

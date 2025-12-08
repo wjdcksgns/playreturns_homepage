@@ -1,0 +1,27 @@
+.rowsControls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 20px;
+  margin: 36px 0;
+}
+
+.controlBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 20px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .rowsControls {
+    margin: 30px 0;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .rowsControls {
+    margin: 28px 0;
+  }
+}

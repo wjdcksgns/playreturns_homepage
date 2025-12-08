@@ -1,0 +1,35 @@
+.loadingBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingCircle {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+.progressBox {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.progressTxt {
+  font-size: 18px !important;
+}
+
+.loadingTxt {
+  margin: 30px auto 0;
+  text-align: center;
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-gy);
+}

@@ -1,0 +1,86 @@
+/* common */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 화면 전체 높이 */
+  position: relative; /* 기존 속성 유지 */
+}
+
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.container:not(.wide) {
+  max-width: 1170px;
+}
+
+/* main */
+main {
+  position: relative;
+  z-index: 100;
+  flex: 1; /* 남는 공간을 차지해서 footer를 아래로 밀어냄 */
+}
+
+
+main > *:first-of-type {
+  padding-top: 80px;
+}
+
+section {
+  position: relative;
+  padding-bottom: 100px;
+}
+
+section:first-of-type {
+  padding-top: 180px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .wrap {
+    padding: 0 20px;
+  }
+
+  main > *:first-of-type {
+    padding-top: 65px;
+  }
+
+  section {
+    padding-bottom: 80px;
+  }
+
+  section:first-of-type {
+    padding-top: 145px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  section {
+    padding-bottom: 60px;
+  }
+
+  section:first-of-type {
+    padding-top: 125px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  section {
+    padding-bottom: 50px;
+  }
+
+  section:first-of-type {
+    padding-top: 115px;
+  }
+}

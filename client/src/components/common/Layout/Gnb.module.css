@@ -1,0 +1,19 @@
+.navItem {
+  margin-right: 30px;
+}
+
+.navItem:last-of-type {
+  margin-right: 0;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .navItem {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navItem:last-of-type {
+    margin-bottom: 0;
+  }
+}

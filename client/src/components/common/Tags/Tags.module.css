@@ -1,0 +1,22 @@
+.tags {
+  border: 2px solid var(--color-gy);
+  background: var(--color-wh);
+  padding: 6px 12px;
+  border-radius: 6px;
+  max-height: 60px;
+  overflow: auto;
+}
+
+.tag {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.input {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}

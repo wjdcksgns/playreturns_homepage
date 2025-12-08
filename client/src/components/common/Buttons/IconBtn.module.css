@@ -1,0 +1,25 @@
+.btnIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-light-pk);
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 1px 3px 6px var(--alpha-bk-3);
+  transition: all .3s;
+}
+
+.btnIcon:not(:disabled):hover {
+  opacity: .75;
+  box-shadow: none;
+}
+
+.btnIcon:disabled {
+  box-shadow: none;
+  background: var(--alpha-bk-1);
+  pointer-events: none;
+}
+
+.btnIcon > * {
+  color: var(--color-wh);
+}

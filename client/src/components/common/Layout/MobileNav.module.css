@@ -1,0 +1,164 @@
+/* responsive */
+@media all and (max-width: 1024px) {
+  .mobileNav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .btnNav {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 20px;
+    z-index: 200;
+  }
+  
+  .btnNav > * {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    background: var(--color-wh);
+    overflow: hidden;
+    border-radius: 2px;
+    transition: all .3s;
+  }
+  
+  .btnNav > *:nth-of-type(1) {
+    top: 0;
+  }
+  
+  .btnNav > *:nth-of-type(2) {
+    top: calc(50% - 1px);
+  }
+  
+  .btnNav > *:nth-of-type(3) {
+    bottom: 0;
+  }
+  
+  .btnNav:hover > *::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-light-pk);
+    transform: skewX(-45deg);
+    transform-origin: top right;
+    animation: line-bar .7s forwards;
+  }
+  
+  .btnNav:hover > *:nth-of-type(2)::after {
+    animation-delay: .15s;
+  }
+  
+  .btnNav:hover > *:nth-of-type(3)::after {
+    animation-delay: .3s;
+  }
+
+  .mobileNav.open .btnNav > * {
+    top: calc(50% - 1px);
+  }
+
+  .mobileNav.open .btnNav > *:nth-of-type(1) {
+    transform: rotate(135deg);
+  }
+
+  .mobileNav.open .btnNav > *:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .mobileNav.open .btnNav > *:nth-of-type(3) {
+    transform: rotate(225deg);
+  }
+
+  .navWrap {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 100vw;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    z-index: 100;
+  }
+
+  .backdrop {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--alpha-bk-3);
+    backdrop-filter: blur(3px);
+    transition: all .3s;
+    z-index: 100;
+  }
+  
+  .navContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    background: var(--color-light-gy);
+    transition: all .3s;
+    overflow: hidden;
+    z-index: 200;
+    box-shadow: -10px 0px 20px var(--alpha-bk-3);
+  }
+  
+  .navContainer > nav:nth-of-type(1) {
+    flex-shrink: 0;
+    padding: 85px 20px 20px;
+    background: var(--color-dark-gy);
+    box-shadow: 1px 5px 10px var(--alpha-bk-3);
+  }
+  
+  .navContainer > nav:nth-of-type(2) {
+    position: relative;
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  .navContainer > nav:nth-of-type(2)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../../../assets/images/symbol_bk.png) no-repeat 115% 90% / 55%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .navContainer {
+    width: 80vw;
+  }
+}
+
+/* animation */
+@keyframes line-bar{
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}

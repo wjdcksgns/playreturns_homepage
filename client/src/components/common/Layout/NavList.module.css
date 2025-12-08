@@ -1,0 +1,12 @@
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .navList {
+    display: block;
+  }
+}

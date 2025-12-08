@@ -1,0 +1,103 @@
+.videoBox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.video {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  z-index: 100;
+}
+
+.videoControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.fileCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 200;
+  transition: all .3s;
+}
+
+.fileCover:not([data-drawing]):hover {
+  box-shadow: inset 0 -10em 5em -5em var(--alpha-bk-5);
+}
+
+.btnFile {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 10px;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: all .3s;
+  z-index: 200;
+}
+
+.fileCover:not([data-drawing]):hover .btnFile {
+  opacity: 1;
+}
+
+.fileCover[data-drawing] .btnFile {
+  display: none;
+}
+
+.btnFileLabel {
+  display: block;
+  position: relative;
+  left: 100%;
+  opacity: 0;
+  color: var(--alpha-wh-9);
+  font-size: 16px;
+  transition: all .3s;
+}
+
+.btnFile:hover .btnFileLabel {
+  left: 0;
+  opacity: 1;
+}
+
+.btnFileIcon {
+  color: var(--alpha-wh-9);
+  font-size: 50px !important;
+  transform: rotate(0deg);
+  transition: all .3s !important;
+}
+
+.btnFile:hover .btnFileIcon {
+  transform: rotate(180deg);
+}
+
+/* responsive */
+@media all and (max-width: 1440px) {
+  .btnFileIcon {
+    font-size: 40px !important;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .videoBox {
+    margin-bottom: 15px;
+  }
+
+  .btnFile {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .btnFileIcon {
+    font-size: 35px !important;
+  }
+}

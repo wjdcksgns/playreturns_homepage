@@ -1,0 +1,104 @@
+.tabBox {
+  display: flex;
+  gap: 20px;
+}
+
+.setArea {
+  width: 40%;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+.cardControls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0 10px;
+  margin-bottom: 20px;
+}
+
+.viewArea {
+  width: 60%;
+}
+
+.inputFile {
+  display: none;
+}
+
+.uploadFile {
+  width: 100%;
+  padding: 30px 50px 20px;
+  border: 1px solid var(--alpha-bk-3);
+  background: var(--alpha-wh-3);
+}
+
+.uploadIcon {
+  display: block !important;
+  margin: 0 auto 10px;
+  font-size: 80px !important;
+  color: var(--alpha-bk-3);
+}
+
+.uploadInfo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 0 10px;
+  color: var(--color-gy);
+}
+
+.card {
+  margin: 0 10px;
+}
+
+.step {
+  margin-bottom: 20px;
+}
+
+.stepNumber {
+  font-size: 18px;
+  color: var(--color-pk);
+  margin-bottom: 10px;
+}
+
+/* responsive */
+@media all and (max-width: 1440px) {
+  .tabBox {
+    display: block;
+  }
+  
+  .viewArea {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .setArea {
+    width: 100%;
+  }
+
+  .uploadFile {
+    padding: 20px 20px 5px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .uploadFile {
+    padding: 15px 15px 5px;
+  }
+
+  .uploadIcon {
+    font-size: 60px !important;
+  }
+
+  .uploadInfo {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .btnWrap {
+    margin-top: 20px;
+  }
+}

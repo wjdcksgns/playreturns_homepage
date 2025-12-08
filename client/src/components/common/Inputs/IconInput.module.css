@@ -1,0 +1,29 @@
+.inputBox {
+  margin-bottom: 15px;
+}
+
+.iconInput {
+  display: flex;
+  align-items: flex-end;
+  gap: 0 10px;
+}
+
+.inputBox > *:first-child {
+  color: var(--alpha-bk-5);
+  margin: 5px 0;
+}
+
+.infoMsg {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 34px;
+  color: var(--alpha-bk-5);
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .inputBox {
+    margin-bottom: 10px;
+  }
+}

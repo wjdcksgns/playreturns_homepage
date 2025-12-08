@@ -1,0 +1,58 @@
+.searchArea {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+}
+
+.inputBox {
+  display: flex;
+  flex-grow: 1;
+  gap: 0 10px;
+}
+
+.searchFilter {
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.searchBox {
+  flex-grow: 1;
+}
+
+.historyBox {
+  display: flex;
+  align-items: flex-start;
+  max-height: 78px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.historyBadges {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btnToggleHistory {
+  flex-shrink: 0;
+}
+
+.btnBox > * {
+  height: 100%;
+}
+
+/* responsive */
+@media all and (max-width: 768px) {
+  .searchFilter {
+    flex-shrink: 1;
+    width: 100%;
+  }
+
+  .inputBox {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px 0;
+  }
+}

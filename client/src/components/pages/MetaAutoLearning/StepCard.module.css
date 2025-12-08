@@ -1,0 +1,16 @@
+.step {
+  margin-bottom: 20px;
+}
+
+.stepNumber {
+  font-size: 18px;
+  color: var(--color-pk);
+  margin-bottom: 10px;
+}
+
+/* responsive */
+@media all and (max-width: 1024px) {
+  .stepNumber {
+    font-size: 16px;
+  }
+}
