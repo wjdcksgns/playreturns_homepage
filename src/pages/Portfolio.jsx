@@ -1,6 +1,7 @@
 import styles from "./Portfolio.module.css";
 import { useState } from "react";
 import ContactModal from "../components/common/Modals/ContactModal"; // 경로 맞게 조정
+const base = process.env.PUBLIC_URL + "/assets/images/portfolio/";
 
 const projects = [
   {
@@ -12,9 +13,9 @@ const projects = [
 • 폐쇄망(Local Network)·암호화 등 개인정보 보호 강화
 • 데이터 기반 맞춤 상담/추천 등 서비스 확장 지원`,
     images: [
-      "/assets/images/portfolio/face_1.png",
-      "/assets/images/portfolio/face_2.png",
-      "/assets/images/portfolio/face_3.png",
+      `${base}face_1.png`,
+      `${base}face_2.png`,
+      `${base}face_3.png`,
     ],
   },
   {
@@ -22,19 +23,19 @@ const projects = [
     description: `귀여운 도트 캐릭터와 스토리 진행이 결합된 리듬 액션 게임. 다양한 음악 장르와 손맛 나는 타격감으로 색다른 재미를 제공합니다.
 
 • 'ONE! TWO! THREE! GO!' 큐에 맞춘 타이밍 플레이
-• 스토리 × 리듬의 색다른 진행
+• 스토리 x 리듬의 색다른 진행
 • 다채로운 음악 장르와 그래픽/사운드 이펙트
 • 리더보드로 점수 경쟁 및 친구와 순위 비교`,
     images: [
-      "/assets/images/portfolio/rhythm_1.jpg",
-      "/assets/images/portfolio/rhythm_2.jpg",
-      "/assets/images/portfolio/rhythm_3.png",
-      "/assets/images/portfolio/rhythm_4.jpg",
-      "/assets/images/portfolio/rhythm_5.jpg",
-      "/assets/images/portfolio/rhythm_6.jpg",
-      "/assets/images/portfolio/rhythm_7.jpg",
-      "/assets/images/portfolio/rhythm_8.png",
-      "/assets/images/portfolio/rhythm_9.jpg",
+      `${base}rhythm_1.jpg`,
+      `${base}rhythm_2.jpg`,
+      `${base}rhythm_3.png`,
+      `${base}rhythm_4.jpg`,
+      `${base}rhythm_5.jpg`,
+      `${base}rhythm_6.jpg`,
+      `${base}rhythm_7.jpg`,
+      `${base}rhythm_8.png`,
+      `${base}rhythm_9.jpg`,
     ],
   },
   {
@@ -46,10 +47,10 @@ const projects = [
 • IoT 데이터 연동으로 실시간 현장 정보 제공
 • 현장 인력과 전문가 간 음성·영상·AR 모델·파일 공유 가능`,
     images: [
-      "/assets/images/portfolio/ar_1.png",
-      "/assets/images/portfolio/ar_2.png",
-      "/assets/images/portfolio/ar_3.png",
-      "/assets/images/portfolio/ar_4.png",
+      `${base}ar_1.png`,
+      `${base}ar_2.png`,
+      `${base}ar_3.png`,
+      `${base}ar_4.png`,
     ],
   },
 ];
