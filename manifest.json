@@ -1,0 +1,28 @@
+{
+  "short_name": "Meta Space",
+  "name": "Meta Space",
+  "icons": [
+    {
+      "src": "favicon_152.png",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "favicon_32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "favicon_16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "메타오토러닝에 오셔서 새로운 인공지능을 경험하고 새로운 세상을 만들어보세요.",
+  "dir": "ltr",
+  "lang": "ko-KR"
+}
