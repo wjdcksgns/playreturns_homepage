@@ -54,7 +54,9 @@ const Header = () => {
                 <Link to="/portfolio">포트폴리오</Link>
                 <Link to="/technology">보유 기술</Link>
                 <Link to="/contact">Contact</Link>
-                <Link to="/privacy">개인정보처리방침</Link>
+                <Link to="/admin/login" className={styles.adminBtn}>
+                  서울대학교 멘토-멘티 매칭
+                </Link>
                 <Users />
               </nav>
             ) : (
@@ -67,8 +69,9 @@ const Header = () => {
                   <Link to="/portfolio">포트폴리오</Link>
                   <Link to="/technology">보유 기술</Link>
                   <Link to="/contact">Contact</Link>
-                  <Link to="/privacy">개인정보처리방침</Link>
-
+                  <Link to="/admin/login" className={styles.adminBtn}>
+                    서울대학교 멘토-멘티 매칭
+                  </Link>
                 </nav>
               </MobileNav>
             )}

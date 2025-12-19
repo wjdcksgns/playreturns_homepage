@@ -20,6 +20,9 @@ import Technology from './pages/Technology';
 import Privacy from './pages/Privacy';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
+import AdminLogin from './components/pages/admin/AdminLogin';
+import AdminUpload from './components/pages/admin/AdminUpload';
+
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/technology" element={<Technology />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/upload" element={<AdminUpload />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
