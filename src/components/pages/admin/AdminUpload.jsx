@@ -4,18 +4,29 @@ import styles from './AdminUpload.module.css';
 import { excelToCsvFile } from './adminUtils';
 
 
+
+
 const API_BASE_URL = 'https://api.playreturns.co.kr/snu';
+
 
 
 const AdminUpload = () => {
     const navigate = useNavigate();
 
-    const [analysisDone, setAnalysisDone] = useState(false);
     const mentorInputRef = useRef(null);
     const menteeInputRef = useRef(null);
 
     const [mentorFile, setMentorFile] = useState(null);
     const [menteeFile, setMenteeFile] = useState(null);
+
+    const [analysisDone, setAnalysisDone] = useState(false);
+
+    // 팝업 / 로딩 상태
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    const [progressText, setProgressText] = useState('');
 
     // 🔐 로그인 체크
     useEffect(() => {
@@ -25,6 +36,9 @@ const AdminUpload = () => {
         }
     }, [navigate]);
 
+    /* =========================
+       파일 선택 핸들러
+    ========================= */
     const handleMentorSelect = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -33,11 +47,9 @@ const AdminUpload = () => {
             const csvFile = await excelToCsvFile(file, 'mentor_raw.csv');
             setMentorFile(csvFile);
         } else {
-            const renamedFile = new File(
-                [file],
-                'mentor_raw.csv',
-                { type: file.type }
-            );
+            const renamedFile = new File([file], 'mentor_raw.csv', {
+                type: file.type,
+            });
             setMentorFile(renamedFile);
         }
     };
@@ -50,20 +62,42 @@ const AdminUpload = () => {
             const csvFile = await excelToCsvFile(file, 'mentee_raw.csv');
             setMenteeFile(csvFile);
         } else {
-            const renamedFile = new File(
-                [file],
-                'mentee_raw.csv',
-                { type: file.type }
-            );
+            const renamedFile = new File([file], 'mentee_raw.csv', {
+                type: file.type,
+            });
             setMenteeFile(renamedFile);
         }
     };
 
     const canAnalyze = mentorFile && menteeFile;
 
-    // ✅ 반드시 컴포넌트 안에 있어야 함
-    const handleAnalyze = async () => {
+    /* =========================
+       실제 분석 실행
+    ========================= */
+    const startAnalyze = async () => {
         if (!mentorFile || !menteeFile) return;
+
+        setIsAnalyzing(true);
+        setProgress(0);
+        setProgressText('업로드된 파일을 확인하는 중입니다...');
+
+        const timer = setInterval(() => {
+            setProgress((prev) => {
+                const next = prev + 10;
+
+                if (next === 20) {
+                    setProgressText('멘토 데이터를 전처리하는 중입니다...');
+                } else if (next === 40) {
+                    setProgressText('멘티 데이터를 전처리하는 중입니다...');
+                } else if (next === 60) {
+                    setProgressText('멘토-멘티 매칭 점수를 계산하는 중입니다...');
+                } else if (next === 80) {
+                    setProgressText('매칭 결과를 정리하는 중입니다...');
+                }
+
+                return next < 90 ? next : 90;
+            });
+        }, 400);
 
         try {
             const formData = new FormData();
@@ -79,82 +113,194 @@ const AdminUpload = () => {
                 throw new Error('분석 요청 실패');
             }
 
-            const result = await response.json();
+            clearInterval(timer);
 
-            alert('분석이 완료되었습니다.');
-            console.log('서버 응답:', result);
-            setAnalysisDone(true);
+            // ✅ 100% 먼저 보여주기
+            setProgress(100);
+            setProgressText('분석을 마무리하고 있습니다...');
+
+            // ✅ 100% 상태를 잠깐 유지
+            setTimeout(() => {
+                setIsAnalyzing(false);
+                setAnalysisDone(true);
+                alert('분석이 완료되었습니다.');
+            }, 600);
         } catch (error) {
-            console.error(error);
+            clearInterval(timer);
+            setIsAnalyzing(false);
             alert('분석 중 오류가 발생했습니다.');
         }
     };
+
 
     const handleDownload = () => {
         window.location.href = `${API_BASE_URL}/download`;
     };
 
-
     return (
-        <div className={styles.wrapper}>
-            <h2>멘토-멘티 매칭 분석</h2>
+        <div
+            className={styles.page}
+            style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/upload_bg.jpg)`,
+            }}
+        >
+            <div className={styles.wrapper}>
+                <h2>멘토-멘티 매칭 분석</h2>
 
-            <div className={styles.uploadBox}>
-                <h3>멘토 파일 업로드</h3>
-                <button onClick={() => mentorInputRef.current.click()}>
-                    파일 선택
-                </button>
-                <input
-                    ref={mentorInputRef}
-                    type="file"
-                    accept=".csv,.xlsx,.xls"
-                    onChange={handleMentorSelect}
-                    hidden
-                />
-                {mentorFile && (
-                    <p className={styles.fileName}>
-                        선택된 파일: {mentorFile.name}
-                    </p>
-                )}
-            </div>
+                {/* =========================
+               파일 업로드 영역
+            ========================= */}
+                <div className={styles.uploadGrid}>
+                    {/* 멘토 */}
+                    <div className={styles.uploadBox}>
+                        <h3>멘토 파일 업로드</h3>
 
-            <div className={styles.uploadBox}>
-                <h3>멘티 파일 업로드</h3>
-                <button onClick={() => menteeInputRef.current.click()}>
-                    파일 선택
-                </button>
-                <input
-                    ref={menteeInputRef}
-                    type="file"
-                    accept=".csv,.xlsx,.xls"
-                    onChange={handleMenteeSelect}
-                    hidden
-                />
-                {menteeFile && (
-                    <p className={styles.fileName}>
-                        선택된 파일: {menteeFile.name}
-                    </p>
-                )}
-            </div>
+                        <div
+                            className={`${styles.uploadSquare} ${mentorFile ? styles.checked : ''
+                                }`}
+                            onClick={() => mentorInputRef.current.click()}
+                        >
+                            {mentorFile ? '✓' : '+'}
+                        </div>
 
-            <button
-                className={`${styles.analyzeBtn} ${canAnalyze ? styles.active : ''}`}
-                disabled={!canAnalyze}
-                onClick={handleAnalyze}
-            >
-                분석 시작
-            </button>
-            {analysisDone && (
+                        <input
+                            ref={mentorInputRef}
+                            type="file"
+                            accept=".csv,.xlsx,.xls"
+                            onChange={handleMentorSelect}
+                            hidden
+                        />
+
+                        {mentorFile && (
+                            <div className={styles.fileInfo}>
+                                <span>{mentorFile.name}</span>
+                                <button
+                                    className={styles.removeBtn}
+                                    onClick={() => {
+                                        setMentorFile(null);
+                                        mentorInputRef.current.value = '';
+                                    }}
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 멘티 */}
+                    <div className={styles.uploadBox}>
+                        <h3>멘티 파일 업로드</h3>
+
+                        <div
+                            className={`${styles.uploadSquare} ${menteeFile ? styles.checked : ''
+                                }`}
+                            onClick={() => menteeInputRef.current.click()}
+                        >
+                            {menteeFile ? '✓' : '+'}
+                        </div>
+
+                        <input
+                            ref={menteeInputRef}
+                            type="file"
+                            accept=".csv,.xlsx,.xls"
+                            onChange={handleMenteeSelect}
+                            hidden
+                        />
+
+                        {menteeFile && (
+                            <div className={styles.fileInfo}>
+                                <span>{menteeFile.name}</span>
+                                <button
+                                    className={styles.removeBtn}
+                                    onClick={() => {
+                                        setMenteeFile(null);
+                                        menteeInputRef.current.value = '';
+                                    }}
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                {/* =========================
+               분석 시작 버튼
+            ========================= */}
                 <button
-                    className={styles.downloadBtn}
-                    onClick={handleDownload}
+                    className={`${styles.analyzeBtn} ${canAnalyze ? styles.active : ''
+                        }`}
+                    disabled={!canAnalyze || isAnalyzing}
+                    onClick={() => setShowConfirm(true)}
                 >
-                    결과 파일 다운로드
+                    분석 시작
                 </button>
-            )}
 
+                {analysisDone && (
+                    <button
+                        className={styles.downloadBtn}
+                        onClick={handleDownload}
+                    >
+                        결과 파일 다운로드
+                    </button>
+                )}
+
+                {/* =========================
+               분석 시작 확인 팝업
+            ========================= */}
+                {showConfirm && (
+                    <div className={styles.modalOverlay}>
+                        <div className={styles.confirmModal}>
+                            <h4>매칭 분석 시작</h4>
+                            <p className={styles.modalDesc}>
+                                멘토–멘티 매칭 분석을 시작하시겠습니까?<br />
+                                업로드된 파일을 기반으로 분석이 진행됩니다.
+                            </p>
+
+                            <div className={styles.modalActions}>
+                                <button
+                                    className={styles.cancelBtn}
+                                    onClick={() => setShowConfirm(false)}
+                                >
+                                    취소
+                                </button>
+                                <button
+                                    className={styles.confirmBtn}
+                                    onClick={() => {
+                                        setShowConfirm(false);
+                                        startAnalyze();
+                                    }}
+                                >
+                                    분석 시작
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* =========================
+               분석 중 로딩 오버레이
+            ========================= */}
+                {isAnalyzing && (
+                    <div className={styles.loadingOverlay}>
+                        <div className={styles.loadingBox}>
+                            <p>{progressText}</p>
+
+                            <div className={styles.progressBar}>
+                                <div
+                                    className={styles.progress}
+                                    style={{ width: `${progress}%` }}
+                                />
+                            </div>
+
+                            <span>{progress}%</span>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
+
 };
 
 export default AdminUpload;

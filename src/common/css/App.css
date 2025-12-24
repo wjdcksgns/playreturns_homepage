@@ -2,8 +2,10 @@
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 화면 전체 높이 */
-  position: relative; /* 기존 속성 유지 */
+  min-height: 100vh;
+  /* 화면 전체 높이 */
+  position: relative;
+  /* 기존 속성 유지 */
 }
 
 
@@ -29,11 +31,12 @@
 main {
   position: relative;
   z-index: 100;
-  flex: 1; /* 남는 공간을 차지해서 footer를 아래로 밀어냄 */
+  flex: 1;
+  /* 남는 공간을 차지해서 footer를 아래로 밀어냄 */
 }
 
 
-main > *:first-of-type {
+main>*:first-of-type {
   padding-top: 80px;
 }
 
@@ -52,7 +55,7 @@ section:first-of-type {
     padding: 0 20px;
   }
 
-  main > *:first-of-type {
+  main>*:first-of-type {
     padding-top: 65px;
   }
 

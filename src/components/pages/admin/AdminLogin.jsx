@@ -9,34 +9,78 @@ const AdminLogin = () => {
     const navigate = useNavigate();
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
+    const [error, setError] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        if (!id && !pw) {
+            setError('아이디와 비밀번호를 입력해주세요.');
+            return;
+        }
+        if (!id) {
+            setError('아이디를 입력해주세요.');
+            return;
+        }
+        if (!pw) {
+            setError('비밀번호를 입력해주세요.');
+            return;
+        }
+
         if (id === ADMIN_ID && pw === ADMIN_PW) {
             sessionStorage.setItem('admin', 'true');
             navigate('/admin/upload');
         } else {
-            alert('접근 권한이 없습니다.');
+            setError('계정이 존재하지 않습니다. 접근 권한이 없습니다.');
         }
     };
 
     return (
-        <div className={styles.wrapper}>
-            <h2>서울대학교 멘토-멘티 매칭</h2>
+        <div className={styles.page}>
+            <div className={styles.container}>
+                {/* 좌측 로고 영역 */}
+                <div className={styles.left}>
+                    <img src="/snu_logo.png" alt="서울대학교 로고" />
+                </div>
 
-            <div className={styles.form}>
-                <input
-                    placeholder="ID"
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={pw}
-                    onChange={(e) => setPw(e.target.value)}
-                />
 
-                <button onClick={handleLogin}>로그인</button>
+                {/* 우측 로그인 영역 */}
+                <div className={styles.right}>
+                    <h2>서울대학교 멘토-멘티 매칭</h2>
+
+                    <form className={styles.form} onSubmit={handleLogin}>
+                        <div className={styles.inputGroup}>
+                            <input
+                                placeholder="ID"
+                                value={id}
+                                onChange={(e) => {
+                                    setId(e.target.value);
+                                    setError('');
+                                }}
+                            />
+                        </div>
+
+                        <div className={styles.inputGroup}>
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={pw}
+                                onChange={(e) => {
+                                    setPw(e.target.value);
+                                    setError('');
+                                }}
+                            />
+                        </div>
+
+                        {error && (
+                            <div className={styles.errorMsg}>
+                                <small>{error}</small>
+                            </div>
+                        )}
+
+                        <button type="submit">로그인</button>
+                    </form>
+                </div>
             </div>
         </div>
     );

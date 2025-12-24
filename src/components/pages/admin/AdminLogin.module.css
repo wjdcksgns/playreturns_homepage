@@ -1,34 +1,127 @@
-.wrapper {
+/* =========================
+   전체 페이지
+========================= */
+.page {
     min-height: 80vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    padding: 40px 20px;
+    /* ✅ 위아래 여백 줄임 */
+    background: #f7f8fa;
+}
+
+/* =========================
+   좌우 컨테이너
+========================= */
+.container {
+    width: 100%;
+    max-width: 920px;
+    display: flex;
+    gap: 48px;
     align-items: center;
 }
 
-.form {
-    width: 320px;
+/* =========================
+   좌측 로고
+========================= */
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.left img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+}
+
+/* =========================
+   우측 로그인
+========================= */
+.right {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
+    align-items: center;
 }
 
+/* 타이틀 */
+.right h2 {
+    margin-bottom: 24px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.3px;
+    text-align: center;
+}
+
+/* =========================
+   폼 카드
+========================= */
+.form {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 24px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* input 그룹 */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* input */
 .form input {
-    padding: 10px;
-    font-size: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
+.form input:focus {
+    outline: none;
+    border-color: #1f4fff;
+    box-shadow: 0 0 0 3px rgba(31, 79, 255, 0.12);
+}
+
+/* 에러 */
+.errorMsg {
+    color: var(--color-rd);
+    font-size: 13px;
+}
+
+/* 버튼 */
 .form button {
-    padding: 10px;
+    margin-top: 8px;
+    padding: 12px;
     background: #1f4fff;
-    color: #fff;
+    color: #ffffff;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
     font-weight: 600;
+    cursor: pointer;
 }
 
-.form button:hover {
-    background: #1536c9;
+/* =========================
+   모바일 반응형
+========================= */
+@media all and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .left img {
+        max-width: 200px;
+    }
 }

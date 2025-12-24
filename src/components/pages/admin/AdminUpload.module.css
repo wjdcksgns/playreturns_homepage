@@ -1,66 +1,313 @@
+/* =========================
+   페이지 전체 배경
+========================= */
+.page {
+    width: 100%;
+    /* ✅ 전체 화면 폭 */
+    min-height: calc(100vh - 80px);
+    /* 헤더 높이 제외 */
+    margin-top: 80px;
+    /* 헤더 아래부터 시작 */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+    /* ✅ 좌우 잘림 방지 */
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* 서울대 블루 오버레이 */
+.page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 55, 110, 0.78);
+    z-index: 0;
+}
+
+/* =========================
+   레이아웃
+========================= */
 .wrapper {
-    max-width: 700px;
-    margin: 80px auto;
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
     padding: 0 20px;
+
+    position: relative;
+    z-index: 1;
+
+    transform: translateY(-40px);
+    /* ✅ 핵심: 위로 살짝 */
 }
 
+/* =========================
+   페이지 타이틀
+========================= */
+.wrapper h2 {
+    text-align: center;
+    margin-bottom: 36px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    /* ✅ 흰색 */
+    letter-spacing: -0.3px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   업로드 영역 (좌우 2컬럼)
+========================= */
+.uploadGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* 모바일: 세로 배치 */
+@media all and (max-width: 768px) {
+    .uploadGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .loadingBox p {
+        white-space: normal;
+    }
+}
+
+/* =========================
+   업로드 박스
+========================= */
 .uploadBox {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 24px;
+    background: #ffffff;
+    text-align: center;
 }
 
+/* 섹션 제목 */
 .uploadBox h3 {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.2px;
 }
 
-.uploadBox button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    border: 1px solid #1f4fff;
-    background: #fff;
+/* =========================
+   정사각형 파일 선택 버튼 (+)
+========================= */
+.uploadSquare {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto;
+
+    border: 2px dashed #1f4fff;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+    font-weight: 700;
     color: #1f4fff;
+
     cursor: pointer;
-    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-.uploadBox button:hover {
+.uploadSquare:hover {
     background: #f0f4ff;
+    border-color: #1536c9;
 }
 
-.fileName {
-    margin-top: 10px;
-    font-size: 0.9rem;
+/* =========================
+   선택된 파일 정보
+========================= */
+.fileInfo {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 14px;
     color: #333;
 }
 
+.fileInfo span {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* =========================
+   파일 제거 버튼 (X)
+========================= */
+.removeBtn {
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #999;
+    cursor: pointer;
+}
+
+.removeBtn:hover {
+    color: #d32f2f;
+}
+
+/* =========================
+   분석 버튼
+========================= */
 .analyzeBtn {
     width: 100%;
-    margin-top: 30px;
-    padding: 14px;
-    border-radius: 8px;
+    margin-top: 36px;
+    padding: 16px;
+    border-radius: 10px;
     border: none;
-    background: #ccc;
-    color: #666;
-    font-size: 1rem;
+    background: #e0e0e0;
+    color: #777;
+    font-size: 16px;
     font-weight: 700;
     cursor: not-allowed;
 }
 
 .analyzeBtn.active {
     background: #1f4fff;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
 }
 
+.analyzeBtn.active:hover {
+    background: #1536c9;
+}
+
+/* =========================
+   다운로드 버튼
+========================= */
 .downloadBtn {
-    margin-top: 20px;
-    padding: 12px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
     font-size: 16px;
+    font-weight: 700;
     background-color: #2e7d32;
-    color: white;
+    color: #ffffff;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+.downloadBtn:hover {
+    background-color: #256628;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
+}
+
+/* =========================
+   파일 선택 완료 상태 (✓)
+========================= */
+.checked {
+    border-color: #2e7d32;
+    color: #2e7d32;
+    background: #f1f8f3;
+}
+
+/* =========================
+   모달 / 로딩 오버레이
+========================= */
+.modalOverlay,
+.loadingOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* =========================
+   모달 / 로딩 박스
+========================= */
+.loadingBox,
+.confirmModal {
+    background: #ffffff;
+    padding: 32px 28px;
+    border-radius: 14px;
+    width: 420px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.loadingBox p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================
+   프로세스바
+========================= */
+.progressBar {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #1f4fff;
+    transition: width 0.3s ease;
+}
+
+/* =========================
+   팝업 버튼
+========================= */
+.modalActions {
+    display: flex;
+    gap: 12px;
+}
+
+.cancelBtn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.confirmBtn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #1f4fff;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.confirmBtn:hover {
+    background: #1536c9;
 }
