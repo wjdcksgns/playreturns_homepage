@@ -16,6 +16,10 @@ const AdminUpload = () => {
     const mentorInputRef = useRef(null);
     const menteeInputRef = useRef(null);
 
+    const blacklistInputRef = useRef(null);
+    const [blacklistFile, setBlacklistFile] = useState(null);
+
+
     const [mentorFile, setMentorFile] = useState(null);
     const [menteeFile, setMenteeFile] = useState(null);
 
@@ -69,6 +73,22 @@ const AdminUpload = () => {
         }
     };
 
+    const handleBlacklistSelect = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        if (file.name.match(/\.(xlsx|xls)$/i)) {
+            const csvFile = await excelToCsvFile(file, 'blacklist.csv');
+            setBlacklistFile(csvFile);
+        } else {
+            const renamedFile = new File([file], 'blacklist.csv', {
+                type: file.type,
+            });
+            setBlacklistFile(renamedFile);
+        }
+    };
+
+
     const canAnalyze = mentorFile && menteeFile;
 
     /* =========================
@@ -103,6 +123,10 @@ const AdminUpload = () => {
             const formData = new FormData();
             formData.append('mentor', mentorFile);
             formData.append('mentee', menteeFile);
+            // ✅ 선택 사항
+            if (blacklistFile) {
+                formData.append('blacklist', blacklistFile);
+            }
 
             const response = await fetch(`${API_BASE_URL}/analyze`, {
                 method: 'POST',
@@ -222,6 +246,41 @@ const AdminUpload = () => {
                             </div>
                         )}
                     </div>
+
+                    {/* 블랙리스트 (선택) */}
+                    <div className={styles.uploadBox}>
+                        <h3>블랙리스트 업로드 (선택)</h3>
+
+                        <div
+                            className={`${styles.uploadSquare} ${blacklistFile ? styles.checked : ''}`}
+                            onClick={() => blacklistInputRef.current.click()}
+                        >
+                            {blacklistFile ? '✓' : '+'}
+                        </div>
+
+                        <input
+                            ref={blacklistInputRef}
+                            type="file"
+                            accept=".csv,.xlsx,.xls"
+                            onChange={handleBlacklistSelect}
+                            hidden
+                        />
+
+                        {blacklistFile && (
+                            <div className={styles.fileInfo}>
+                                <span>{blacklistFile.name}</span>
+                                <button
+                                    className={styles.removeBtn}
+                                    onClick={() => {
+                                        setBlacklistFile(null);
+                                        blacklistInputRef.current.value = '';
+                                    }}
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* =========================
@@ -246,15 +305,27 @@ const AdminUpload = () => {
                 )}
 
                 {/* =========================
-               분석 시작 확인 팝업
-            ========================= */}
+   분석 시작 확인 팝업
+========================= */}
                 {showConfirm && (
                     <div className={styles.modalOverlay}>
                         <div className={styles.confirmModal}>
                             <h4>매칭 분석 시작</h4>
+
                             <p className={styles.modalDesc}>
-                                멘토–멘티 매칭 분석을 시작하시겠습니까?<br />
-                                업로드된 파일을 기반으로 분석이 진행됩니다.
+                                멘토–멘티 매칭 분석을 시작하시겠습니까?
+                                <br />
+                                {blacklistFile ? (
+                                    <>
+                                        블랙리스트 파일이 적용되어<br />
+                                        해당 인원은 매칭 대상에서 자동 제외됩니다.
+                                    </>
+                                ) : (
+                                    <>
+                                        블랙리스트 없이<br />
+                                        전체 인원을 대상으로 매칭이 진행됩니다.
+                                    </>
+                                )}
                             </p>
 
                             <div className={styles.modalActions}>
@@ -277,6 +348,7 @@ const AdminUpload = () => {
                         </div>
                     </div>
                 )}
+
 
                 {/* =========================
                분석 중 로딩 오버레이

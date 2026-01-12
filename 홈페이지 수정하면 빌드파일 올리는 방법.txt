@@ -20,4 +20,3 @@ sudo systemctl reload nginx
 git add .    or    git add 특정 파일(예: public/delete-account.html)
 git commit -m "메세지"
 git push
-npm run deploy
