@@ -13,7 +13,7 @@ const AdminLogin = () => {
     }, []);
 
     const handleLogin = async (e) => {
-
+        e.preventDefault();
         if (!id || !pw) {
             setError('아이디와 비밀번호를 입력해주세요.');
             return;
@@ -55,7 +55,7 @@ const AdminLogin = () => {
                 <div className={styles.right}>
                     <h2>서울대학교 멘토-멘티 매칭</h2>
 
-                    <form className={styles.form}>
+                    <form className={styles.form} onSubmit={handleLogin}>
                         <div className={styles.inputGroup}>
                             <input
                                 placeholder="ID"
@@ -85,9 +85,7 @@ const AdminLogin = () => {
                             </div>
                         )}
 
-                        <button type="button" onClick={handleLogin}>
-                            로그인
-                        </button>
+                        <button type="submit">로그인</button>
                     </form>
                 </div>
             </div>

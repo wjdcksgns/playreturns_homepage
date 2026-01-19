@@ -163,9 +163,33 @@ const AdminUpload = () => {
     };
 
 
-    const handleDownload = () => {
-        window.location.href = `${API_BASE_URL}/download`;
+    const handleDownload = async () => {
+        try {
+            const res = await fetch(`${API_BASE_URL}/download`, {
+                headers: {
+                    'admin-token': sessionStorage.getItem('adminToken'),
+                },
+            });
+
+            if (!res.ok) throw new Error();
+
+            const blob = await res.blob();
+            const url = window.URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'match_result.xlsx';
+            document.body.appendChild(a);
+            a.click();
+
+            a.remove();
+            window.URL.revokeObjectURL(url);
+
+        } catch {
+            alert('다운로드 중 오류가 발생했습니다.');
+        }
     };
+
 
     return (
         <div
