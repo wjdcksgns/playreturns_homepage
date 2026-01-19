@@ -13,7 +13,6 @@ const AdminLogin = () => {
     }, []);
 
     const handleLogin = async (e) => {
-        e.preventDefault();
 
         if (!id || !pw) {
             setError('아이디와 비밀번호를 입력해주세요.');
@@ -21,11 +20,15 @@ const AdminLogin = () => {
         }
 
         try {
-            const res = await fetch('https://api.playreturns.co.kr/auth/admin/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id, pw }),
-            });
+            const res = await fetch(
+                'https://api.playreturns.co.kr/snu/auth/admin/login',
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, pw }),
+                }
+            );
+
 
             if (!res.ok) throw new Error();
 
@@ -52,7 +55,7 @@ const AdminLogin = () => {
                 <div className={styles.right}>
                     <h2>서울대학교 멘토-멘티 매칭</h2>
 
-                    <form className={styles.form} onSubmit={handleLogin}>
+                    <form className={styles.form}>
                         <div className={styles.inputGroup}>
                             <input
                                 placeholder="ID"
@@ -82,7 +85,9 @@ const AdminLogin = () => {
                             </div>
                         )}
 
-                        <button type="submit">로그인</button>
+                        <button type="button" onClick={handleLogin}>
+                            로그인
+                        </button>
                     </form>
                 </div>
             </div>
