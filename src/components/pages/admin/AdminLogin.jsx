@@ -2,38 +2,38 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AdminLogin.module.css';
 
-const ADMIN_ID = 'SNUSR01';
-const ADMIN_PW = 'snusr01)!';
-
 const AdminLogin = () => {
     const navigate = useNavigate();
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [error, setError] = useState('');
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        if (!id && !pw) {
+        if (!id || !pw) {
             setError('아이디와 비밀번호를 입력해주세요.');
             return;
         }
-        if (!id) {
-            setError('아이디를 입력해주세요.');
-            return;
-        }
-        if (!pw) {
-            setError('비밀번호를 입력해주세요.');
-            return;
-        }
 
-        if (id === ADMIN_ID && pw === ADMIN_PW) {
-            sessionStorage.setItem('admin', 'true');
+        try {
+            const res = await fetch('https://api.playreturns.co.kr/auth/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, pw }),
+            });
+
+            if (!res.ok) throw new Error();
+
+            const data = await res.json();
+            sessionStorage.setItem('adminToken', data.token);
             navigate('/admin/upload');
-        } else {
+
+        } catch {
             setError('계정이 존재하지 않습니다. 접근 권한이 없습니다.');
         }
     };
+
 
     return (
         <div className={styles.page}>

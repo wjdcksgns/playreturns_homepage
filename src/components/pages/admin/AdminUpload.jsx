@@ -32,13 +32,15 @@ const AdminUpload = () => {
 
     const [progressText, setProgressText] = useState('');
 
-    // 🔐 로그인 체크
+    // 🔐 로그인 체크 (서버 인증 기준)
     useEffect(() => {
-        if (sessionStorage.getItem('admin') !== 'true') {
+        const token = sessionStorage.getItem('adminToken');
+        if (token !== 'ADMIN_OK') {
             alert('접근 권한이 없습니다.');
             navigate('/admin/login');
         }
     }, [navigate]);
+
 
     /* =========================
        파일 선택 핸들러
@@ -130,8 +132,12 @@ const AdminUpload = () => {
 
             const response = await fetch(`${API_BASE_URL}/analyze`, {
                 method: 'POST',
+                headers: {
+                    'admin-token': sessionStorage.getItem('adminToken'),
+                },
                 body: formData,
             });
+
 
             if (!response.ok) {
                 throw new Error('분석 요청 실패');
@@ -305,8 +311,8 @@ const AdminUpload = () => {
                 )}
 
                 {/* =========================
-   분석 시작 확인 팝업
-========================= */}
+                분석 시작 확인 팝업
+                ========================= */}
                 {showConfirm && (
                     <div className={styles.modalOverlay}>
                         <div className={styles.confirmModal}>
