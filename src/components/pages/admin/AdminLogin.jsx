@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AdminLogin.module.css';
 
@@ -7,6 +7,10 @@ const AdminLogin = () => {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [error, setError] = useState('');
+
+    useEffect(() => {
+        sessionStorage.removeItem('adminToken');
+    }, []);
 
     const handleLogin = async (e) => {
         e.preventDefault();
