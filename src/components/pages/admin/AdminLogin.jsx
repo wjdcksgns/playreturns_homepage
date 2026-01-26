@@ -76,6 +76,11 @@ const AdminLogin = () => {
                                     setPw(e.target.value);
                                     setError('');
                                 }}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        handleLogin(e);
+                                    }
+                                }}
                             />
                         </div>
 

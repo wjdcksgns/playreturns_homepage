@@ -80,10 +80,10 @@ const AdminUpload = () => {
         if (!file) return;
 
         if (file.name.match(/\.(xlsx|xls)$/i)) {
-            const csvFile = await excelToCsvFile(file, 'blacklist.csv');
+            const csvFile = await excelToCsvFile(file, 'blocklist.csv');
             setBlacklistFile(csvFile);
         } else {
-            const renamedFile = new File([file], 'blacklist.csv', {
+            const renamedFile = new File([file], 'blocklist.csv', {
                 type: file.type,
             });
             setBlacklistFile(renamedFile);
@@ -277,9 +277,9 @@ const AdminUpload = () => {
                         )}
                     </div>
 
-                    {/* 블랙리스트 (선택) */}
+                    {/* 블락리스트 (선택) */}
                     <div className={styles.uploadBox}>
-                        <h3>블랙리스트 업로드 (선택)</h3>
+                        <h3>블락리스트 업로드 (선택)</h3>
 
                         <div
                             className={`${styles.uploadSquare} ${blacklistFile ? styles.checked : ''}`}
