@@ -13,6 +13,7 @@ sudo systemctl reload nginx
 
 --------------------------------------------
 2025.12.08.
+(디버그로 로컬에서 테스트하고 싶을 땐 npm start)
 
 1. 코드 수정
 2. D:\playreturns_homepage 경로에서 cmd 켜기
@@ -20,3 +21,8 @@ sudo systemctl reload nginx
 git add .    or    git add 특정 파일(예: public/delete-account.html)
 git commit -m "메세지"
 git push
+npm run build
+npm run deploy
+
+
+

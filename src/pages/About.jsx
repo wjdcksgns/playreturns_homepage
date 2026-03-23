@@ -18,8 +18,9 @@ function About() {
       <div className={styles.block}>
         <h2 className={styles.title}>What We Do</h2>
         <ul className={styles.services}>
+          <li>Andoid / iOS 어플리케이션 개발</li>
           <li>Unity 엔진 기반 콘텐츠 개발</li>
-          <li>AR/VR/메타버스 콘텐츠 개발 (Android / iOS / PC 지원)</li>
+          <li>AR / VR / 메타버스 콘텐츠 개발 (Android / iOS / PC 지원)</li>
           <li>AI 기능 융합 및 지능형 시스템 구현</li>
           <li>CCTV · 디지털트윈 · 실시간 협업 시스템 개발</li>
           <li>Unity Asset 기반 UI/모델링 + 맞춤 제작 지원</li>

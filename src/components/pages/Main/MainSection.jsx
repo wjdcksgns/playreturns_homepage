@@ -10,7 +10,7 @@ const MainSection = () => {
       <div className={styles.bg}>
         <video src={`${process.env.PUBLIC_URL || ''}/videos/bg_main.mp4`} muted={true} autoPlay={true} loop={true}></video>
       </div>
-      <FullHeightSection props={{className: styles.section}}>
+      <FullHeightSection props={{ className: styles.section }}>
         <Container>
           <MainContents />
         </Container>

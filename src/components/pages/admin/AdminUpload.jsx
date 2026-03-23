@@ -19,6 +19,8 @@ const AdminUpload = () => {
     const blacklistInputRef = useRef(null);
     const [blacklistFile, setBlacklistFile] = useState(null);
 
+    const wishlistInputRef = useRef(null);
+    const [wishlistFile, setWishlistFile] = useState(null);
 
     const [mentorFile, setMentorFile] = useState(null);
     const [menteeFile, setMenteeFile] = useState(null);
@@ -90,6 +92,21 @@ const AdminUpload = () => {
         }
     };
 
+    const handleWishlistSelect = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        if (file.name.match(/\.(xlsx|xls)$/i)) {
+            const csvFile = await excelToCsvFile(file, 'wishlist.csv');
+            setWishlistFile(csvFile);
+        } else {
+            const renamedFile = new File([file], 'wishlist.csv', {
+                type: file.type,
+            });
+            setWishlistFile(renamedFile);
+        }
+    };
+
 
     const canAnalyze = mentorFile && menteeFile;
 
@@ -128,6 +145,9 @@ const AdminUpload = () => {
             // ✅ 선택 사항
             if (blacklistFile) {
                 formData.append('blacklist', blacklistFile);
+            }
+            if (wishlistFile) {
+                formData.append('wish', wishlistFile);
             }
 
             const response = await fetch(`${API_BASE_URL}/analyze`, {
@@ -311,6 +331,40 @@ const AdminUpload = () => {
                             </div>
                         )}
                     </div>
+                    {/* 지속희망리스트 (선택) */}
+                    <div className={styles.uploadBox}>
+                        <h3>지속희망리스트 업로드 (선택)</h3>
+
+                        <div
+                            className={`${styles.uploadSquare} ${wishlistFile ? styles.checked : ''}`}
+                            onClick={() => wishlistInputRef.current.click()}
+                        >
+                            {wishlistFile ? '✓' : '+'}
+                        </div>
+
+                        <input
+                            ref={wishlistInputRef}
+                            type="file"
+                            accept=".csv,.xlsx,.xls"
+                            onChange={handleWishlistSelect}
+                            hidden
+                        />
+
+                        {wishlistFile && (
+                            <div className={styles.fileInfo}>
+                                <span>{wishlistFile.name}</span>
+                                <button
+                                    className={styles.removeBtn}
+                                    onClick={() => {
+                                        setWishlistFile(null);
+                                        wishlistInputRef.current.value = '';
+                                    }}
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* =========================
@@ -345,15 +399,30 @@ const AdminUpload = () => {
                             <p className={styles.modalDesc}>
                                 멘토–멘티 매칭 분석을 시작하시겠습니까?
                                 <br />
+
                                 {blacklistFile ? (
                                     <>
-                                        블랙리스트 파일이 적용되어<br />
+                                        블락리스트 파일이 적용되어<br />
                                         해당 인원은 매칭 대상에서 자동 제외됩니다.
                                     </>
                                 ) : (
                                     <>
-                                        블랙리스트 없이<br />
+                                        블락리스트 없이<br />
                                         전체 인원을 대상으로 매칭이 진행됩니다.
+                                    </>
+                                )}
+
+                                <br /><br />
+
+                                {wishlistFile ? (
+                                    <>
+                                        지속희망리스트 파일이 적용되어<br />
+                                        해당 인원은 자동으로 매칭됩니다.
+                                    </>
+                                ) : (
+                                    <>
+                                        지속희망리스트 없이<br />
+                                        매칭이 진행됩니다.
                                     </>
                                 )}
                             </p>

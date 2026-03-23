@@ -2,6 +2,13 @@ import styles from "./History.module.css";
 
 const historyData = [
     {
+        year: "2026",
+        events: [
+            "서울대학교 멘토-멘티 AI 기반 매칭 솔루션 개발 (Web)",
+            "나만의 추억을 지도에 기록하는 리맵(RE:MAP) 출시 (Android)",
+        ],
+    },
+    {
         year: "2025",
         events: [
             "공사현장 시공 품질관리 어플리케이션 개발 (Android)",
