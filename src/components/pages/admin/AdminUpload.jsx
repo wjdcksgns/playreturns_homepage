@@ -3,12 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './AdminUpload.module.css';
 import { excelToCsvFile } from './adminUtils';
 
-
-
-
 const API_BASE_URL = 'https://api.playreturns.co.kr/snu';
-
-
 
 const AdminUpload = () => {
     const navigate = useNavigate();
@@ -33,6 +28,27 @@ const AdminUpload = () => {
     const [progress, setProgress] = useState(0);
 
     const [progressText, setProgressText] = useState('');
+
+    const [keywordInput, setKeywordInput] = useState('');
+    const [keywords, setKeywords] = useState([]);
+
+    const handleKeywordKeyDown = (e) => {
+        if (e.key === 'Enter' && keywordInput.trim()) {
+            e.preventDefault();
+
+            const value = keywordInput.trim();
+
+            setKeywords((prev) =>
+                prev.includes(value) ? prev : [...prev, value]
+            );
+
+            setKeywordInput('');
+        }
+    };
+
+    const removeKeyword = (idx) => {
+        setKeywords((prev) => prev.filter((_, i) => i !== idx));
+    };
 
     // 🔐 로그인 체크 (서버 인증 기준)
     useEffect(() => {
@@ -114,6 +130,7 @@ const AdminUpload = () => {
        실제 분석 실행
     ========================= */
     const startAnalyze = async () => {
+
         if (!mentorFile || !menteeFile) return;
 
         setIsAnalyzing(true);
@@ -148,6 +165,9 @@ const AdminUpload = () => {
             }
             if (wishlistFile) {
                 formData.append('wish', wishlistFile);
+            }
+            if (keywords.length > 0) {
+                formData.append('keywords', keywords.join(','));
             }
 
             const response = await fetch(`${API_BASE_URL}/analyze`, {
@@ -367,6 +387,29 @@ const AdminUpload = () => {
                     </div>
                 </div>
 
+                <div className={styles.keywordBox}>
+                    <h3>위험 키워드 설정 (선택)</h3>
+
+                    <div className={styles.keywordInputWrap}>
+                        <input
+                            type="text"
+                            value={keywordInput}
+                            onChange={(e) => setKeywordInput(e.target.value)}
+                            onKeyDown={handleKeywordKeyDown}
+                            placeholder="예: 키워드 입력 후 Enter"
+                        />
+                    </div>
+
+                    <div className={styles.keywordList}>
+                        {keywords.map((kw, idx) => (
+                            <span key={idx} className={styles.keywordTag}>
+                                {kw}
+                                <button onClick={() => removeKeyword(idx)}>×</button>
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
                 {/* =========================
                분석 시작 버튼
             ========================= */}
@@ -423,6 +466,13 @@ const AdminUpload = () => {
                                     <>
                                         지속희망리스트 없이<br />
                                         매칭이 진행됩니다.
+                                    </>
+                                )}
+                                {keywords.length > 0 && (
+                                    <>
+                                        <br /><br />
+                                        입력된 키워드가 포함된 멘티는<br />
+                                        결과에서 강조 표시됩니다.
                                     </>
                                 )}
                             </p>
