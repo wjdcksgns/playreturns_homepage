@@ -18,6 +18,7 @@ import Contact from './pages/Contact';
 import History from './pages/History';
 import Technology from './pages/Technology';
 import Privacy from './pages/Privacy';
+import SajuYeonPrivacy from './pages/SajuYeonPrivacy';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
 import AdminLogin from './components/pages/admin/AdminLogin';
@@ -58,6 +59,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/technology" element={<Technology />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/saju-privacy" element={<SajuYeonPrivacy />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
             <Route path="*" element={<NotFound />} />
