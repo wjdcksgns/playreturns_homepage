@@ -21,6 +21,7 @@ import Privacy from './pages/Privacy';
 import SajuYeonPrivacy from './pages/SajuYeonPrivacy';
 import SudokuPrivacy from './pages/SudokuPrivacy';
 import SudokuDeleteAccount from './pages/SudokuDeleteAccount';
+import Terms from './pages/Terms';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
 import AdminLogin from './components/pages/admin/AdminLogin';
@@ -64,6 +65,7 @@ const App = () => {
             <Route path="/saju-privacy" element={<SajuYeonPrivacy />} />
             <Route path="/sudoku-privacy" element={<SudokuPrivacy />} />
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
             <Route path="*" element={<NotFound />} />
