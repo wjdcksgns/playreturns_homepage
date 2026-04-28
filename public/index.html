@@ -33,6 +33,30 @@
     gtag('config', 'G-Y0NZVDE1G7');
   </script>
 
+  <!--
+    SPA URL 복원 스크립트 — React가 마운트되기 전에 실행되어야 함.
+    1) 404.html 트릭으로 변환된 쿼리스트링(예: /?/about)을 진짜 URL(/about)로 복원
+    2) 옛 해시 라우트(#/about) 형식의 링크를 새 경로 형식으로 자동 리다이렉트 (하위 호환)
+  -->
+  <script>
+    (function (l) {
+      // (1) 404 redirect 복원: /?/path → /path
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&');
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+      // (2) 옛 해시 라우트(#/about 등) 호환: 새 경로로 자동 변환
+      else if (l.hash && l.hash.indexOf('#/') === 0) {
+        var newPath = l.hash.slice(1); // '#/about' → '/about'
+        window.history.replaceState(null, null, newPath);
+      }
+    })(window.location);
+  </script>
+
 </head>
 
 <body>
