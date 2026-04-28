@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Read(//c/Users/user/Downloads/Do_Hyeon/**)",
+      "Bash(cp \"C:/Users/user/Downloads/Do_Hyeon/DoHyeon-Regular.ttf\" \"d:/playreturns_homepage/src/assets/fonts/\")",
+      "Bash(cp \"C:/Users/user/Downloads/Do_Hyeon/OFL.txt\" \"d:/playreturns_homepage/src/assets/fonts/\")",
+      "Read(//c/Users/user/Downloads/Chiron_GoRound_TC,Do_Hyeon/Chiron_GoRound_TC/**)",
+      "Read(//c/Users/user/Desktop/업무/플레이리턴즈/**)",
+      "Read(//c/Users/user/Downloads/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\user\\Desktop\\업무\\플레이리턴즈",
+      "C:\\Users\\user\\Downloads"
+    ]
+  }
+}

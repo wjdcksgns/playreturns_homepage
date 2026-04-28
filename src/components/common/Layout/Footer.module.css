@@ -1,93 +1,190 @@
 .footer {
   position: relative;
-  color: #000000;
-  border-top: 1px solid var(--alpha-wh-1);
-  background: #ffffff;  
+  background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+  color: #cbd5e1;
   z-index: 200;
 }
 
-.contents {
-  padding: 50px 0 70px;
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  padding: 60px 0 40px;
+}
+
+/* ===== Brand ===== */
+.brand {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .logo {
-  width: 30%;
-  font-size: 20px;
-}
-
-.logo img {
   width: auto;
-  max-height: 56px;
-  opacity: 1;
+  height: 48px;
+  align-self: flex-start;
+  object-fit: contain;
+  filter: brightness(1.05);
 }
 
-.info {
-  width: 70%;
-  font-size: 14px;
+.tagline {
+  font-size: 0.9rem;
+  color: #818cf8;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 14px;
 }
 
-.contact {
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 30px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--alpha-wh-3);
+  flex-direction: column;
+  gap: 12px;
 }
 
-.contact p::after {
-  content: '|';
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+.contactList a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.contactList a:hover {
+  color: #fff;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: #6366f1;
+  margin-top: 4px;
+}
+
+/* ===== Links ===== */
+.linksGroup {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 32px;
+}
+
+.linkColumn h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #818cf8;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.linkColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linkColumn a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: color 0.15s ease, padding-left 0.15s ease;
   display: inline-block;
-  margin: 0 10px;
 }
 
-.contact p:last-of-type::after {
-  display: none;
+.linkColumn a:hover {
+  color: #fff;
+  padding-left: 4px;
 }
 
-/* responsive */
-@media all and (max-width: 1024px) {
-  .contents {
-    padding: 30px 0;
-    display: block;
+/* ===== Bottom ===== */
+.bottom {
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  padding: 22px 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(148, 163, 184, 0.3);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #64748b;
+  letter-spacing: 0.01em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px 0 32px;
   }
 
-  .logo {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .logo img {
-    max-height: 45px;
-  }
-
-  .info {
-    width: 100%;
-  }
-
-  .contact {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-  }
-
-  .contact p {
-    width: 100%;
-    margin-bottom: 12px;
-  }
-
-  .contact p::after {
-    display: none;
+  .linksGroup {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 }
 
-@media all and (max-width: 375px) {
-  .contents {
-    padding: 20px 0;
+@media (max-width: 540px) {
+  .linksGroup {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .logo h2 {
-    text-align: center;
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .company {
+    flex-wrap: wrap;
   }
 }

@@ -1,0 +1,476 @@
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #6366f1;
+  margin: 0 0 12px;
+}
+
+.heading h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ===== 카드 그리드 ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+}
+
+.cardDark .desc {
+  color: #cbd5e1;
+}
+
+/* 카드 상단 미리보기 (그라데이션 + 폰 스크린샷) */
+.preview {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  padding: 32px 24px 0;
+}
+
+.preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255, 255, 255, 0.18),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.phoneShot {
+  position: relative;
+  width: auto;
+  height: 105%;
+  max-width: 70%;
+  object-fit: contain;
+  object-position: bottom;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35),
+    0 0 0 6px rgba(255, 255, 255, 0.85);
+  transform: translateY(8%);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .phoneShot {
+  transform: translateY(4%);
+}
+
+/* 카드 본문 */
+.body {
+  padding: 28px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.titleRow h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.nameEn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+}
+
+.tagline {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 8px 0 14px;
+}
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #475569;
+  flex: 1;
+  margin: 0 0 22px;
+}
+
+/* 액션 버튼 */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detailBtn {
+  padding: 11px 18px;
+  background: transparent;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.detailBtn:hover {
+  background: currentColor;
+}
+
+.detailBtn:hover {
+  filter: brightness(1.05);
+}
+
+.cardDark .detailBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.storeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.storeBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+}
+
+.storeBtn span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.storeBtn small {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.storeBtn strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.playBadgeIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ===== 모달 ===== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+  animation: fade 0.2s ease;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 880px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 40px 36px 32px;
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #64748b;
+  transition: color 0.15s ease;
+}
+
+.modalClose:hover {
+  color: #0f172a;
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.modalHeader h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  color: #0f172a;
+}
+
+.modalHeader p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.modalSlider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 360px;
+}
+
+.slideImage {
+  max-width: 100%;
+  max-height: 460px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+  object-fit: contain;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.65);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  z-index: 2;
+}
+
+.navBtn:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.navLeft { left: 12px; }
+.navRight { right: 12px; }
+
+.counter {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 12px 0 22px;
+}
+
+.modalDesc {
+  margin-bottom: 22px;
+}
+
+.modalDesc p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #334155;
+  margin: 0 0 16px;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.featureList li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.featureList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.modalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 18px 0 22px;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  margin: 22px 0;
+}
+
+.modalLinks a {
+  color: #475569;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px dashed #cbd5e1;
+  padding-bottom: 1px;
+  transition: color 0.15s ease;
+}
+
+.modalLinks a:hover {
+  color: #0f172a;
+}
+
+.modalStoreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.modalStoreBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.modalStoreBtn span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.modalStoreBtn small {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+.modalStoreBtn strong {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding: 70px 16px 90px;
+  }
+
+  .heading h2 {
+    font-size: 1.7rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .modal {
+    padding: 32px 20px 24px;
+  }
+
+  .slideImage {
+    max-height: 360px;
+  }
+
+  .modalSlider {
+    min-height: 320px;
+    padding: 14px;
+  }
+
+  .navLeft { left: 6px; }
+  .navRight { right: 6px; }
+}

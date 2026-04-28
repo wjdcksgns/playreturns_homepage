@@ -1,13 +1,27 @@
 .header {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  color: var(--color-light-gy);
-  border-bottom: 1px solid var(--alpha-wh-1);
-  background: #ffffff;
+  width: 100%;
   z-index: 300;
-  transition: all .3s;
+  transition: background 0.3s ease, border-color 0.3s ease,
+    backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 메인 페이지 최상단 — 투명 헤더 */
+.transparent {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  color: #fff;
+}
+
+/* 그 외 — 화이트 헤더 */
+.solid {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  color: #0f172a;
 }
 
 .contents {
@@ -15,61 +29,243 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
+  padding: 0 40px;
 }
 
-.logo img {
+/* ===== Logo ===== */
+.logo {
+  margin: 0;
+}
+
+.logoBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.logoImg {
   width: auto;
-  max-height: 48px;
-  vertical-align: middle;
+  height: 38px;
+  display: block;
+  transition: filter 0.3s ease;
 }
 
-/* responsive */
-@media all and (max-width: 1024px) {
-  .contents {
-    height: 65px;
-  }
-
-  .logo img {
-    max-height: 41px;
-  }
+/* 메인 페이지 최상단 — 다크 영상 배경 위에선 로고를 흰색 실루엣으로 */
+.transparent .logoImg {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
+/* ===== Launch Badge ===== */
+.launchBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.transparent .launchBadge {
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.launchDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: pulse 1.8s infinite ease;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* ===== Nav ===== */
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 4px;
   align-items: center;
 }
 
-.nav a {
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav a:hover {
-  color: #007bff;
-  /* 파란색 포인트 */
-}
-
-.launchText {
-  font-size: 16px;
+.navLink {
+  position: relative;
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #2E7D32;
-  white-space: nowrap;
-  animation: blink 1.8s infinite;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-@keyframes blink {
-  0% {
-    opacity: 1;
+.transparent .navLink {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.transparent .navLink:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.solid .navLink {
+  color: #334155;
+}
+
+.solid .navLink:hover {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.navLinkActive {
+  position: relative;
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.solid .navLinkActive {
+  color: #6366f1;
+}
+
+.solid .navLinkActive::after {
+  background: #6366f1;
+  opacity: 1;
+}
+
+.transparent .navLinkActive {
+  color: #fff;
+}
+
+/* ===== Admin Button (서울대 멘토-멘티) ===== */
+.adminBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.solid .adminBtn {
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.solid .adminBtn:hover {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #fff;
+}
+
+.transparent .adminBtn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.transparent .adminBtn:hover {
+  background: #fff;
+  color: #0f172a;
+  border-color: #fff;
+}
+
+.adminDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .contents {
+    height: 64px;
+    padding: 0 20px;
   }
 
-  50% {
-    opacity: 0.55;
+  .logoImg {
+    height: 32px;
   }
 
-  100% {
-    opacity: 1;
+  .launchBadge {
+    display: none;
+  }
+
+  /* 모바일 nav 내부 */
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .navLink {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    color: #0f172a !important;
+    border-radius: 12px;
+  }
+
+  .navLink:hover {
+    background: #f1f5f9 !important;
+  }
+
+  .navLinkActive {
+    color: #6366f1 !important;
+    background: #eef2ff !important;
+  }
+
+  .navLinkActive::after {
+    display: none;
+  }
+
+  .adminBtn {
+    margin-left: 0;
+    margin-top: 8px;
+    justify-content: center;
+    color: #fff !important;
+    background: linear-gradient(135deg, #6366f1, #ec4899) !important;
+    border-color: transparent !important;
+    padding: 12px 18px;
+  }
+
+  .adminBtn:hover {
+    filter: brightness(1.05);
+  }
+}
+
+@media (max-width: 540px) {
+  .logoBox {
+    gap: 8px;
   }
 }

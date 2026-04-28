@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css');
 
 :root {
+  --font-display: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  --font-body: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   --color-bk: #191919;
   --color-wh: #fff;
   --color-dark-wh: #eee;
@@ -40,10 +42,48 @@
 body {
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.4;
-  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1.5;
+  font-family: var(--font-body);
   background: var(--color-light-gy);
   padding: 0 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Chiron GoRound TC + Noto Sans KR이 모든 텍스트에 적용되도록 강제 */
+html, body, button, input, textarea, select, a, p, span, div, li, h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* ===== 스크롤 페이드인 (useReveal 훅과 함께 사용) ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 ::-webkit-scrollbar {

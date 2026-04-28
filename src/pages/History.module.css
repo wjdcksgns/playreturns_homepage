@@ -1,95 +1,179 @@
 .history {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 100px 20px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 100px 24px 120px;
 }
 
+/* ===== Hero ===== */
 .hero {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #6366f1;
+  margin: 0 0 12px;
 }
 
 .hero h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    position: relative;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
 }
 
-.hero h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #007bff;
-    margin: 15px auto 0;
+.subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
 }
 
-.hero p {
-    color: #555;
-    font-size: 1.1rem;
-}
-
-/* ===== 연도별 타임라인 ===== */
+/* ===== Timeline ===== */
 .timeline {
-    border-left: 3px solid #6a11cb;
-    padding-left: 30px;
-    position: relative;
+  position: relative;
+  padding-left: 46px;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    #6366f1 0%,
+    #818cf8 50%,
+    #c7d2fe 100%
+  );
+  border-radius: 2px;
 }
 
 .timelineItem {
-    margin-bottom: 40px;
-    position: relative;
+  position: relative;
+  margin-bottom: 44px;
 }
 
-.timelineYear {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #6a11cb;
-    margin-bottom: 12px;
-    position: relative;
+.timelineItem:last-child {
+  margin-bottom: 0;
 }
 
-.timelineYear::before {
-    content: "";
-    position: absolute;
-    left: -39px;
-    top: 6px;
+.yearWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.dot {
+  position: absolute;
+  left: -41px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.year {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* ===== Events ===== */
+.events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.eventCard {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px 22px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.eventCard:hover {
+  transform: translateX(4px);
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.eventText {
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 0.74rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  .history {
+    padding: 70px 16px 90px;
+  }
+
+  .hero h2 {
+    font-size: 1.7rem;
+  }
+
+  .timeline {
+    padding-left: 36px;
+  }
+
+  .timelineLine {
+    left: 7px;
+  }
+
+  .dot {
+    left: -33px;
     width: 14px;
     height: 14px;
-    background: #6a11cb;
-    border-radius: 50%;
-}
+    border-width: 2.5px;
+  }
 
-.timelineEvents {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+  .year {
+    font-size: 1.25rem;
+  }
 
-.timelineEvents li {
-    margin-bottom: 8px;
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-    padding-left: 5px;
-    position: relative;
-}
+  .eventCard {
+    padding: 14px 16px;
+  }
 
-.timelineEvents li::before {
-    content: "└";
-    position: absolute;
-    left: -20px;
-    color: #aaa;
-}
-
-@media (max-width: 768px) {
-    .timeline {
-        padding-left: 20px;
-        border-left: 2px solid #6a11cb;
-    }
-
-    .timelineYear {
-        font-size: 1.2rem;
-    }
+  .eventText {
+    font-size: 0.93rem;
+  }
 }

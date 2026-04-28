@@ -45,8 +45,48 @@ const App = () => {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [handleResize]);
+
+  // ===== 전역 스크롤 페이드인 옵저버 =====
+  // .reveal 클래스가 붙은 모든 요소를 자동으로 감지해 뷰포트 진입 시 .is-visible 추가
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.reveal').forEach((el) =>
+        el.classList.add('is-visible')
+      );
+      return undefined;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    const scan = () => {
+      document
+        .querySelectorAll('.reveal:not(.is-visible)')
+        .forEach((el) => io.observe(el));
+    };
+
+    scan();
+
+    // 라우트 변경 등으로 새로 추가된 .reveal 요소도 감지
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
+  }, []);
 
   return (
     <div id="app">

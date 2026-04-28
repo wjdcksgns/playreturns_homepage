@@ -30,9 +30,9 @@
 /* main */
 main {
   position: relative;
-  z-index: 100;
   flex: 1;
   /* 남는 공간을 차지해서 footer를 아래로 밀어냄 */
+  /* z-index를 제거함: 모달이 별도 스태킹 컨텍스트에 갇혀 footer(z-index:200)에 가려지는 문제 방지 */
 }
 
 

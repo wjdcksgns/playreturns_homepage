@@ -1,22 +1,24 @@
 import styles from './MainSection.module.css';
-
-import FullHeightSection from '../../common/Sections/FullHeightSection';
-import Container from '../../common/Layout/Container';
 import MainContents from './MainContents';
 
 const MainSection = () => {
   return (
     <div className={styles.mainWrap}>
       <div className={styles.bg}>
-        <video src={`${process.env.PUBLIC_URL || ''}/videos/bg_main.mp4`} muted={true} autoPlay={true} loop={true}></video>
+        <video
+          src={`${process.env.PUBLIC_URL || ''}/videos/bg_main.mp4`}
+          muted
+          autoPlay
+          loop
+          playsInline
+        />
+        <div className={styles.overlay} />
       </div>
-      <FullHeightSection props={{ className: styles.section }}>
-        <Container>
-          <MainContents />
-        </Container>
-      </FullHeightSection>
+      <div className={styles.section}>
+        <MainContents />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default MainSection;
