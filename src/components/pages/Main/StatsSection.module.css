@@ -54,7 +54,7 @@
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #c7d2fe;
+  color: #ffffff;
   margin: 0 0 12px;
 }
 
@@ -63,11 +63,8 @@
   font-weight: 800;
   margin: 0;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== Grid ===== */
@@ -102,28 +99,26 @@
   font-size: 3.4rem;
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
   letter-spacing: -0.03em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .statLabel {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: #a5b4fc;
+  color: #ffffff;
   text-transform: uppercase;
   margin-top: 4px;
 }
 
 .statSub {
   font-size: 0.88rem;
-  color: #cbd5e1;
+  color: #ffffff;
   line-height: 1.5;
   margin-top: 4px;
+  opacity: 0.9;
 }
 
 /* ===== Responsive ===== */
