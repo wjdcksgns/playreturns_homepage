@@ -22,7 +22,10 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const isHome = location.pathname === '/';
-  const isTransparent = isHome && !scrolled;
+  // 모바일/태블릿(1024px 이하)에선 transparent 모드 비활성화 — 항상 흰 배경 헤더로
+  // CSS specificity 싸움 대신 JS로 클래스 자체를 분기해서 100% 확실하게 적용
+  const isMobile = windowWidth <= 1024;
+  const isTransparent = isHome && !scrolled && !isMobile;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -34,6 +37,19 @@ const Header = () => {
   const headerClass = `${styles.header} ${
     isTransparent ? styles.transparent : styles.solid
   }`;
+
+  // 모바일에선 인라인 스타일로 흰 배경을 강제 (CSS specificity / 캐시 이슈 우회)
+  const headerInlineStyle = isMobile
+    ? {
+        background: '#ffffff',
+        backgroundColor: '#ffffff',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+        borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.06)',
+        color: '#0f172a',
+      }
+    : undefined;
 
   const renderNav = (closeOnClick = false) => (
     <nav className={styles.nav}>
@@ -56,7 +72,7 @@ const Header = () => {
   );
 
   return (
-    <header id="header" className={headerClass}>
+    <header id="header" className={headerClass} style={headerInlineStyle}>
       <Container isWide={true}>
         <div className={styles.contents}>
           <h1 className={styles.logo}>
