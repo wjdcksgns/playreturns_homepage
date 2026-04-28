@@ -17,11 +17,19 @@
 
 /* 그 외 — 화이트 헤더 */
 .solid {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  /* 모바일 브라우저 일부에서 backdrop-filter 미지원 → 어두운 영상이 비치는 이슈 방지 */
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
   color: #0f172a;
+}
+
+/* backdrop-filter 지원 브라우저에선 살짝 투명하게 (선택 사항) */
+@supports (backdrop-filter: blur(12px)) {
+  .solid {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+  }
 }
 
 .contents {
