@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayReturns</title>
+  <!--
+    spa-github-pages 리다이렉트 트릭 (https://github.com/rafgraph/spa-github-pages)
+    GitHub Pages가 직접 URL 진입에 404를 반환할 때 이 파일을 보여줌.
+    여기서 요청 경로를 쿼리스트링으로 변환해 / 로 리다이렉트하면,
+    index.html의 복원 스크립트가 진짜 URL로 history.replaceState 처리.
+  -->
+  <script type="text/javascript">
+    // 커스텀 도메인(playreturns.co.kr)은 root에서 서빙하므로 0
+    var pathSegmentsToKeep = 0;
+
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+<body>
+</body>
+</html>
