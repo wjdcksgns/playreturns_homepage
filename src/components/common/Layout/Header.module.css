@@ -229,6 +229,28 @@
     display: none;
   }
 
+  /* ===== 모바일에선 항상 흰 헤더 (transparent 상태 무시) ===== */
+  /* 메인 페이지 다크 영상 위에서도, 스크롤 전이든 후든 동일하게 흰 배경. */
+  .header.transparent,
+  .header.solid {
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06) !important;
+    color: #0f172a !important;
+    backdrop-filter: none !important;
+  }
+
+  /* 흰 배경이므로 로고는 원래 컬러 그대로 (필터 제거) */
+  .transparent .logoImg {
+    filter: none !important;
+  }
+
+  /* nav 텍스트도 어두운 색으로 */
+  .transparent .navLink,
+  .transparent .adminBtn {
+    color: #0f172a !important;
+  }
+
   /* 모바일 nav 내부 */
   .nav {
     flex-direction: column;

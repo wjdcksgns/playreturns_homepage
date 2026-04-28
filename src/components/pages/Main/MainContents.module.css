@@ -280,6 +280,58 @@
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  /* 모바일/태블릿에선 그라데이션 텍스트 효과 포기 → 순백 + 강한 그림자로 가독성 우선 */
+  .brandTitle {
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.7));
+  }
+
+  .brandKr {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    animation: none !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  }
+
+  .brandEn {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .eyebrow {
+    color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .tagline,
+  .subtitle {
+    color: #ffffff !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  }
+
+  .pill {
+    background: rgba(0, 0, 0, 0.35) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .pill strong {
+    color: #ffffff !important;
+  }
+
+  .scrollCue {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  .tertiaryBtn {
+    color: #ffffff !important;
+  }
+}
+
 @media (max-width: 720px) {
   .eyebrow {
     font-size: 0.7rem;
