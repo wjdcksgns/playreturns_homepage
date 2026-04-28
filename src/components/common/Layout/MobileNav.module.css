@@ -22,7 +22,8 @@
     width: 100%;
     height: 2px;
     left: 0;
-    background: var(--color-wh);
+    /* 흰 헤더 배경 위에서 잘 보이는 다크 네이비 막대 */
+    background: #0f172a;
     overflow: hidden;
     border-radius: 2px;
     transition: all .3s;
@@ -108,37 +109,27 @@
     width: 300px;
     height: 100%;
     border-radius: 20px 0 0 20px;
-    background: var(--color-light-gy);
+    /* 깔끔한 흰 배경 — 새 디자인 시스템과 일치 */
+    background: #ffffff;
     transition: all .3s;
     overflow: hidden;
     z-index: 200;
-    box-shadow: -10px 0px 20px var(--alpha-bk-3);
+    box-shadow: -10px 0px 30px rgba(15, 23, 42, 0.18);
   }
-  
+
   .navContainer > nav:nth-of-type(1) {
     flex-shrink: 0;
     padding: 85px 20px 20px;
-    background: var(--color-dark-gy);
-    box-shadow: 1px 5px 10px var(--alpha-bk-3);
+    /* 다크 영역 제거 — 흰 배경에 자연스럽게 이어짐 */
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
   }
-  
+
   .navContainer > nav:nth-of-type(2) {
     position: relative;
     flex-grow: 1;
     padding: 20px;
     overflow: auto;
-  }
-  
-  .navContainer > nav:nth-of-type(2)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(../../../assets/images/symbol_bk.png) no-repeat 115% 90% / 55%;
-    z-index: -1;
-    opacity: 0.3;
   }
 }
 
