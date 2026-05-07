@@ -101,8 +101,8 @@ const App = () => {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/technology" element={<Technology />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/saju-privacy" element={<SajuYeonPrivacy />} />
+            <Route path="/remapprivacy" element={<Privacy />} />
+            <Route path="/sajuprivacy" element={<SajuYeonPrivacy />} />
             <Route path="/sudoku-privacy" element={<SudokuPrivacy />} />
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
             <Route path="/terms" element={<Terms />} />

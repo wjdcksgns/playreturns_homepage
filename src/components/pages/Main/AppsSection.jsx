@@ -22,7 +22,7 @@ const apps = [
     cardBg: '#ecfdf5',
     storeUrl:
       'https://play.google.com/store/apps/details?id=kr.co.playreturns.remap',
-    privacyPath: '/privacy',
+    privacyPath: '/remapprivacy',
     termsPath: '/terms',
     heroImage: '/images/remap/real/KakaoTalk_20260428_113408623.jpg',
     screenshots: [
@@ -59,7 +59,7 @@ const apps = [
     cardText: '#f5f0d6',
     storeUrl:
       'https://play.google.com/store/apps/details?id=com.playreturns.sajuyeon',
-    privacyPath: '/saju-privacy',
+    privacyPath: '/sajuprivacy',
     heroImage: '/images/saju/real/스크린샷_1.jpg',
     screenshots: [
       '/images/saju/real/스크린샷_1.jpg',

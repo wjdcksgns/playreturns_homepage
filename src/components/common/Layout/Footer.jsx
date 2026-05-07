@@ -14,9 +14,9 @@ const navLinks = [
 ];
 
 const legalLinks = [
-  { to: '/privacy', label: '리맵 개인정보처리방침' },
+  { to: '/remapprivacy', label: '리맵 개인정보처리방침' },
   { to: '/terms', label: '리맵 이용약관' },
-  { to: '/saju-privacy', label: '사주명 개인정보처리방침' },
+  { to: '/sajuprivacy', label: '사주명 개인정보처리방침' },
   { to: '/sudoku-privacy', label: '스도쿠 개인정보처리방침' },
 ];
 

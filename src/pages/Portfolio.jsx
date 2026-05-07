@@ -36,7 +36,7 @@ const projects = [
     tech: ['Android', 'Google Maps API', 'Firebase'],
     storeUrl:
       'https://play.google.com/store/apps/details?id=kr.co.playreturns.remap',
-    privacyPath: '/privacy',
+    privacyPath: '/remapprivacy',
     termsPath: '/terms',
     cover: `${PUBLIC}/images/remap/real/KakaoTalk_20260428_113408623.jpg`,
     images: [
@@ -74,7 +74,7 @@ const projects = [
     tech: ['Android', 'Google OAuth', 'Kakao Login', 'AdMob'],
     storeUrl:
       'https://play.google.com/store/apps/details?id=com.playreturns.sajuyeon',
-    privacyPath: '/saju-privacy',
+    privacyPath: '/sajuprivacy',
     cover: `${PUBLIC}/images/saju/store/sajuMyeong_feature_graphic.jpg`,
     images: [
       `${PUBLIC}/images/saju/real/스크린샷_1.jpg`,
