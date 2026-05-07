@@ -31,7 +31,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://playreturns.co.kr/privacy</loc>
+    <loc>https://playreturns.co.kr/remapprivacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -41,7 +41,7 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://playreturns.co.kr/saju-privacy</loc>
+    <loc>https://playreturns.co.kr/sajuprivacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
