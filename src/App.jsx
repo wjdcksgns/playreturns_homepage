@@ -21,6 +21,9 @@ import Privacy from './pages/Privacy';
 import SajuYeonPrivacy from './pages/SajuYeonPrivacy';
 import SudokuPrivacy from './pages/SudokuPrivacy';
 import SudokuDeleteAccount from './pages/SudokuDeleteAccount';
+import PetsangPrivacy from './pages/PetsangPrivacy';
+import PetsangTerms from './pages/PetsangTerms';
+import PetsangDeleteAccount from './pages/PetsangDeleteAccount';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
@@ -105,6 +108,9 @@ const App = () => {
             <Route path="/sajuprivacy" element={<SajuYeonPrivacy />} />
             <Route path="/sudoku-privacy" element={<SudokuPrivacy />} />
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
+            <Route path="/petsang-privacy" element={<PetsangPrivacy />} />
+            <Route path="/petsang-terms" element={<PetsangTerms />} />
+            <Route path="/petsang-delete-account" element={<PetsangDeleteAccount />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/upload" element={<AdminUpload />} />

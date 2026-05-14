@@ -18,6 +18,8 @@ const legalLinks = [
   { to: '/terms', label: '리맵 이용약관' },
   { to: '/sajuprivacy', label: '사주명 개인정보처리방침' },
   { to: '/sudoku-privacy', label: '스도쿠 개인정보처리방침' },
+  { to: '/petsang-privacy', label: '펫상 개인정보처리방침' },
+  { to: '/petsang-terms', label: '펫상 이용약관' },
 ];
 
 const Footer = () => {
