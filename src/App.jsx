@@ -18,6 +18,8 @@ import Contact from './pages/Contact';
 import History from './pages/History';
 import Technology from './pages/Technology';
 import Privacy from './pages/Privacy';
+import RemapPrivacyEn from './pages/RemapPrivacyEn';
+import RemapTermsEn from './pages/RemapTermsEn';
 import SajuYeonPrivacy from './pages/SajuYeonPrivacy';
 import SudokuPrivacy from './pages/SudokuPrivacy';
 import SudokuDeleteAccount from './pages/SudokuDeleteAccount';
@@ -108,6 +110,8 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/technology" element={<Technology />} />
             <Route path="/remapprivacy" element={<Privacy />} />
+            <Route path="/remapprivacy-en" element={<RemapPrivacyEn />} />
+            <Route path="/terms-en" element={<RemapTermsEn />} />
             <Route path="/sajuprivacy" element={<SajuYeonPrivacy />} />
             <Route path="/sudoku-privacy" element={<SudokuPrivacy />} />
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
