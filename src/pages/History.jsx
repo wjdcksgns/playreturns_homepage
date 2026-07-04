@@ -9,6 +9,9 @@ const historyData = [
       { text: '나만의 추억을 지도에 기록하는 리맵(RE:MAP) 출시', tags: ['Android', '자사 앱'] },
       { text: 'AI 사주풀이·궁합 분석 사주명 출시', tags: ['Android', '자사 앱'] },
       { text: '클래식 스도쿠 게임 출시', tags: ['Android', '자사 앱'] },
+      { text: '서울대학교 PLUS+ 경진대회 온라인 심사 시스템 개발', tags: ['Web', 'B2B'] },
+      { text: '반려동물 AI 관상·궁합 분석 앱 펫상 출시', tags: ['Android', '자사 앱'] },
+      { text: '파리 키우기 캐주얼 게임 파리 살려! 출시', tags: ['Android', '자사 앱'] },
     ],
   },
   {

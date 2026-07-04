@@ -1,0 +1,245 @@
+.section {
+  position: relative;
+  padding: 96px 24px;
+  background: linear-gradient(135deg, #365314 0%, #4d7c0f 50%, #65a30d 100%);
+  overflow: hidden;
+}
+
+/* Decorative blobs */
+.bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob1,
+.blob2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+
+.blob1 {
+  top: -140px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(163, 230, 53, 0.55), transparent 70%);
+}
+
+.blob2 {
+  bottom: -160px;
+  left: -80px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(132, 204, 22, 0.45), transparent 70%);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ===== Copy ===== */
+.copy {
+  color: #f7fee7;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 15px;
+  margin-bottom: 20px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #365314;
+  background: #ecfccb;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+.tagline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #d9f99d;
+  margin: 0 0 18px;
+}
+
+.desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(247, 254, 231, 0.92);
+  margin: 0 0 24px;
+  max-width: 480px;
+}
+
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.chip {
+  padding: 7px 15px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #f7fee7;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.storeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 26px;
+  background: #1a2e05;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  transition: transform 0.16s ease, filter 0.16s ease;
+}
+
+.storeBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+}
+
+.playIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.storeBtn span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.storeBtn small {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.storeBtn strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ===== Visual (phone stack) ===== */
+.visual {
+  display: flex;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  width: 420px;
+  height: 440px;
+}
+
+.phone {
+  position: absolute;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #1a2e05;
+  border: 5px solid #1a2e05;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.4);
+}
+
+.phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 21px;
+}
+
+.phoneCenter {
+  width: 210px;
+  height: 420px;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.phoneLeft {
+  width: 168px;
+  height: 336px;
+  left: 2px;
+  top: 66px;
+  transform: rotate(-8deg);
+  z-index: 2;
+  opacity: 0.96;
+}
+
+.phoneRight {
+  width: 168px;
+  height: 336px;
+  right: 2px;
+  top: 66px;
+  transform: rotate(8deg);
+  z-index: 2;
+  opacity: 0.96;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .chips {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding: 70px 16px;
+  }
+
+  .title {
+    font-size: 2.3rem;
+  }
+
+  .stage {
+    width: 300px;
+    height: 380px;
+    transform: scale(0.86);
+  }
+}

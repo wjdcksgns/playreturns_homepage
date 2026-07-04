@@ -7,6 +7,8 @@ const apps = [
   { name: '리맵', en: 'RE:MAP' },
   { name: '사주명', en: 'SAJUMYEONG' },
   { name: '스도쿠', en: 'SUDOKU' },
+  { name: '펫상', en: 'PETSANG' },
+  { name: '파리 살려!', en: 'SAVE THE FLY' },
 ];
 
 const MainContents = () => {

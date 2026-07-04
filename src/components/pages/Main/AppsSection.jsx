@@ -100,6 +100,72 @@ const apps = [
       '/images/sudoku/real/KakaoTalk_20260428_113852741_05.jpg',
     ],
   },
+  {
+    id: 'petsang',
+    name: '펫상',
+    nameEn: 'PETSANG',
+    tagline: '반려동물 AI 관상·궁합',
+    description:
+      '반려동물 사진 한 장으로 관상·성격 MBTI·닮은꼴·오늘의 운세·궁합까지 AI가 분석해주는 재미 앱. 결과는 히스토리로 저장하고 친구와 공유하세요.',
+    features: [
+      '반려동물 사진 기반 AI 관상 분석',
+      '성격 MBTI · 닮은꼴 · 오늘의 운세',
+      '두 반려동물의 궁합 분석',
+      '분석 결과 히스토리 저장 · 공유',
+      '사진 24시간 자동 삭제로 개인정보 보호',
+    ],
+    color: '#f97316',
+    bgGradient: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
+    cardBg: '#fff7ed',
+    storeUrl:
+      'https://play.google.com/store/apps/details?id=com.playreturns.petsang',
+    privacyPath: '/petsang-privacy',
+    termsPath: '/petsang-terms',
+    deletePath: '/petsang-delete-account',
+    heroImage: '/images/petsang/01_home.webp',
+    screenshots: [
+      '/images/petsang/01_home.webp',
+      '/images/petsang/02_register.webp',
+      '/images/petsang/03_upload.webp',
+      '/images/petsang/04_photo_ready.webp',
+      '/images/petsang/05_fortune.webp',
+      '/images/petsang/06_mbti.webp',
+      '/images/petsang/07_share.webp',
+    ],
+  },
+  {
+    id: 'savefly',
+    name: '파리 살려!',
+    nameEn: 'SAVE THE FLY',
+    tagline: '파리 키우기 방치형 게임',
+    description:
+      '작은 파리 한 마리를 먹이고 돌보며 키우는 방치형 캐주얼 게임. 다양한 스킨·칭호를 모으고 일일 퀘스트를 완료하며, 온라인 랭킹과 명예의 전당에 도전하세요.',
+    features: [
+      '파리를 먹이고 돌보는 방치형 키우기',
+      '다양한 스킨 · 칭호 수집',
+      '일일 퀘스트 · 인벤토리 시스템',
+      '온라인 랭킹 · 명예의 전당 경쟁',
+      'Google 계정 클라우드 동기화',
+    ],
+    color: '#65a30d',
+    bgGradient: 'linear-gradient(135deg, #a3e635 0%, #65a30d 100%)',
+    cardBg: '#f7fee7',
+    storeUrl:
+      'https://play.google.com/store/apps/details?id=com.savefly.save_the_fly',
+    privacyPath: '/savefly-privacy',
+    termsPath: '/savefly-terms',
+    deletePath: '/savefly-delete-account',
+    heroImage: '/images/savefly/01_main.webp',
+    screenshots: [
+      '/images/savefly/01_main.webp',
+      '/images/savefly/02_title.webp',
+      '/images/savefly/03_skin.webp',
+      '/images/savefly/04_ranking.webp',
+      '/images/savefly/05_hall_of_fame.webp',
+      '/images/savefly/06_daily_quest.webp',
+      '/images/savefly/07_inventory.webp',
+    ],
+  },
 ];
 
 const PlayBadge = () => (

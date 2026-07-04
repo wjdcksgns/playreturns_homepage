@@ -84,7 +84,7 @@ const Header = () => {
               />
               <span className={styles.launchBadge}>
                 <span className={styles.launchDot} />
-                NEW · 3개 앱 출시
+                NEW · 파리 살려! 출시
               </span>
             </Link>
           </h1>

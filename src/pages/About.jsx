@@ -6,6 +6,7 @@ import {
   FaBrain,
   FaVideo,
   FaPaintBrush,
+  FaProjectDiagram,
 } from 'react-icons/fa';
 import { usePageTitle } from '../common/hooks/usePageTitle';
 import ceoSignature from '../assets/images/ceo_signature.png';
@@ -15,6 +16,7 @@ const services = [
   { icon: <FaPaintBrush />, label: 'Unity 엔진 기반 콘텐츠 개발' },
   { icon: <FaGlasses />, label: 'AR / VR / 메타버스 콘텐츠 개발' },
   { icon: <FaBrain />, label: 'AI 기능 융합 및 지능형 시스템 구현' },
+  { icon: <FaProjectDiagram />, label: 'AI 매칭·평가 자동화 등 B2B 시스템 개발' },
   { icon: <FaVideo />, label: 'CCTV · 디지털트윈 · 실시간 협업 시스템' },
   { icon: <FaCube />, label: 'Unity Asset 기반 UI/모델링 + 맞춤 제작' },
 ];

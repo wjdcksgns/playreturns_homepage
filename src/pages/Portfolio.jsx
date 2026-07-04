@@ -116,36 +116,79 @@ const projects = [
       `${PUBLIC}/images/sudoku/real/KakaoTalk_20260428_113852741_05.jpg`,
     ],
   },
-
-  // ===== B2B 프로젝트 =====
   {
-    id: 'face',
-    category: 'b2b',
-    title: 'AI 안면인식 솔루션',
-    tagline: '실시간 얼굴 인식 기반 헬스케어/보안 통합 관리',
-    year: '2023~',
-    platform: 'PC · Android',
-    accent: '#6366f1',
+    id: 'petsang',
+    category: 'app',
+    title: '펫상',
+    tagline: '반려동물 AI 관상·궁합 분석',
+    year: '2026',
+    platform: 'Android',
+    accent: '#f97316',
     summary:
-      '실시간 안면인식으로 방문 이력과 증상·처방 정보를 통합 관리하는 스마트 헬스케어/보안 솔루션입니다.',
-    description: `실시간 안면인식으로 방문 이력과 증상·처방 정보를 통합 관리하는 스마트 헬스케어/보안 솔루션입니다. 폐쇄망과 암호화로 개인정보를 보호하면서, 데이터 기반의 맞춤 상담·추천 서비스 확장도 지원합니다.`,
+      '반려동물 사진 한 장으로 관상·MBTI·닮은꼴·운세·궁합까지 AI가 분석해주는 재미 앱입니다.',
+    description: `반려동물 사진 한 장으로 AI가 관상, 성격 MBTI, 닮은꼴, 오늘의 운세, 궁합까지 분석해주는 재미 앱입니다. 분석 결과는 히스토리로 저장하고 친구와 공유할 수 있으며, 업로드한 사진은 분석 후 24시간 이내에 자동 삭제되어 개인정보를 보호합니다.`,
     features: [
-      '비마커 기반 실시간 얼굴 인식',
-      '방문·증상·처방 이력 통합 조회·시각화',
-      '폐쇄망(Local Network)·암호화 등 개인정보 보호',
-      '데이터 기반 맞춤 상담/추천 서비스 확장',
+      '반려동물 사진 기반 AI 관상 분석',
+      '성격 MBTI · 닮은꼴 · 오늘의 운세',
+      '두 반려동물의 궁합 분석',
+      '분석 결과 히스토리 저장 · 공유',
+      '사진 24시간 자동 삭제로 개인정보 보호',
     ],
-    tech: ['Deep Learning', 'OpenCV', 'PyTorch', 'On-premise'],
-    cover: `${portfolioBase}face_1.png`,
+    tech: ['Android', 'GPT-4o', 'Firebase', 'AdMob'],
+    storeUrl:
+      'https://play.google.com/store/apps/details?id=com.playreturns.petsang',
+    privacyPath: '/petsang-privacy',
+    termsPath: '/petsang-terms',
+    deletePath: '/petsang-delete-account',
+    cover: `${PUBLIC}/images/petsang/feature_graphic.webp`,
     images: [
-      `${portfolioBase}face_1.png`,
-      `${portfolioBase}face_2.png`,
-      `${portfolioBase}face_3.png`,
+      `${PUBLIC}/images/petsang/01_home.webp`,
+      `${PUBLIC}/images/petsang/02_register.webp`,
+      `${PUBLIC}/images/petsang/03_upload.webp`,
+      `${PUBLIC}/images/petsang/04_photo_ready.webp`,
+      `${PUBLIC}/images/petsang/05_fortune.webp`,
+      `${PUBLIC}/images/petsang/06_mbti.webp`,
+      `${PUBLIC}/images/petsang/07_share.webp`,
+    ],
+  },
+  {
+    id: 'savefly',
+    category: 'app',
+    title: '파리 살려!',
+    tagline: '파리 키우기 방치형 캐주얼 게임',
+    year: '2026',
+    platform: 'Android',
+    accent: '#65a30d',
+    summary:
+      '작은 파리 한 마리를 먹이고 돌보며 키우는 방치형 게임. 스킨·칭호를 모으고 랭킹과 명예의 전당에 도전하세요.',
+    description: `작은 파리 한 마리를 먹이고 돌보며 키우는 방치형(idle) 캐주얼 게임입니다. 다양한 스킨과 칭호를 수집하고 일일 퀘스트를 완료하며, 온라인 랭킹과 명예의 전당에서 다른 이용자와 경쟁할 수 있습니다. Google 계정으로 진행 상황을 클라우드에 동기화합니다.`,
+    features: [
+      '파리를 먹이고 돌보는 방치형 키우기',
+      '다양한 스킨 · 칭호 수집',
+      '일일 퀘스트 · 인벤토리 시스템',
+      '온라인 랭킹 · 명예의 전당 경쟁',
+      'Google 계정 클라우드 동기화',
+    ],
+    tech: ['Android', 'Flutter', 'Firebase', 'AdMob'],
+    storeUrl:
+      'https://play.google.com/store/apps/details?id=com.savefly.save_the_fly',
+    privacyPath: '/savefly-privacy',
+    termsPath: '/savefly-terms',
+    deletePath: '/savefly-delete-account',
+    cover: `${PUBLIC}/images/savefly/feature_graphic.webp`,
+    images: [
+      `${PUBLIC}/images/savefly/01_main.webp`,
+      `${PUBLIC}/images/savefly/02_title.webp`,
+      `${PUBLIC}/images/savefly/03_skin.webp`,
+      `${PUBLIC}/images/savefly/04_ranking.webp`,
+      `${PUBLIC}/images/savefly/05_hall_of_fame.webp`,
+      `${PUBLIC}/images/savefly/06_daily_quest.webp`,
+      `${PUBLIC}/images/savefly/07_inventory.webp`,
     ],
   },
   {
     id: 'rhythm',
-    category: 'b2b',
+    category: 'app',
     title: '슈퍼리듬스타',
     tagline: '도트 캐릭터 × 스토리 진행 리듬 액션 게임',
     year: '2023',
@@ -172,6 +215,77 @@ const projects = [
       `${portfolioBase}rhythm_7.jpg`,
       `${portfolioBase}rhythm_8.png`,
       `${portfolioBase}rhythm_9.jpg`,
+    ],
+  },
+
+  // ===== B2B 프로젝트 =====
+  {
+    id: 'snu-matching',
+    category: 'b2b',
+    title: '서울대학교 멘토-멘티 AI 매칭 시스템',
+    client: '서울대학교 글로벌사회공헌단',
+    tagline: 'AI 기반 멘토-멘티 매칭 자동화',
+    year: '2026',
+    platform: 'Web · AI',
+    accent: '#1a4fa0',
+    graphic: 'match',
+    summary:
+      '수작업 중심의 멘토-멘티 매칭을 AI 분석·자동화 시스템으로 전환. 서술형 응답을 정량화해 전 조합을 전수 평가하고, 공정하고 설명 가능한 매칭 기준을 수립했습니다.',
+    description: `서울대학교 글로벌사회공헌단의 SNU 멘토링 프로그램을 위해, 기존 담당자 경험에 의존하던 수작업 매칭을 AI 기반 분석·자동화 시스템으로 전환한 프로젝트입니다. 멘토·멘티가 제출한 서술형 응답을 자연어 분석으로 정량화하고, 모든 조합의 적합도를 산출하는 전수 평가 구조를 설계했습니다. 성별·학교급 등 운영 원칙을 선제적 제약 조건으로 적용한 뒤, AI 점수를 기준으로 단계적 매칭을 수행합니다.`,
+    features: [
+      '서술형 응답(비고·경험·취미·진로) 자연어 분석·정량화',
+      '전체 멘토-멘티 점수 행렬 기반 전수 평가',
+      '성별·학교급 등 필수 조건 단계적 반영',
+      'Hard / Soft / Interest 다단계 매칭 로직',
+      '관리자 페이지 CSV 업로드 → 자동 검증 → 결과 다운로드',
+    ],
+    tech: ['Python', 'AI / NLP', '매칭 알고리즘', 'CSV 파이프라인'],
+  },
+  {
+    id: 'snu-judging',
+    category: 'b2b',
+    title: '서울대학교 PLUS+ 경진대회 심사 시스템',
+    client: '서울대학교 글로벌사회공헌단',
+    tagline: '태블릿 기반 온라인 심사 · 표준화 채점',
+    year: '2026',
+    platform: 'Web · Tablet',
+    accent: '#0e5aa8',
+    graphic: 'judge',
+    summary:
+      '글로벌 사회공헌 PLUS+ 경진대회의 예선·사전평가·본선 3단계 심사를 웹으로 처리. Z-score 표준화로 심사위원 편차를 보정하고, 순위와 상훈까지 자동 산출합니다.',
+    description: `서울대학교 글로벌사회공헌단이 운영하는 PLUS+ 경진대회의 심사 전 과정을 웹으로 처리하는 온라인 심사 시스템입니다. 심사위원은 태블릿(갤럭시탭)으로 접속해 발표자료 뷰어와 채점표를 한 화면에서 확인하며 채점하고, 관리자는 채점 현황과 결과를 실시간으로 관리합니다. 심사위원마다 다른 점수 기준을 Z-score로 표준화해 편차를 보정하고, 예선·사전평가·본선 비중을 반영한 최종 순위와 상훈을 자동으로 산출합니다.`,
+    features: [
+      '예선(온라인)·사전평가·본선(현장 태블릿) 3단계 심사',
+      '제안서·발표자료 뷰어 + 채점표 좌우 분할 레이아웃',
+      'Z-score 표준화 점수 엔진으로 심사위원 편차 보정',
+      '승인제 심사위원 계정 · 실시간 채점 현황 모니터링',
+      '순위-상훈 자동 매핑 · 결과 엑셀 다운로드',
+    ],
+    tech: ['Next.js', 'PostgreSQL', 'Prisma', 'Z-score 표준화'],
+  },
+  {
+    id: 'face',
+    category: 'b2b',
+    title: 'AI 안면인식 솔루션',
+    tagline: '실시간 얼굴 인식 기반 헬스케어/보안 통합 관리',
+    year: '2023~',
+    platform: 'PC · Android',
+    accent: '#6366f1',
+    summary:
+      '실시간 안면인식으로 방문 이력과 증상·처방 정보를 통합 관리하는 스마트 헬스케어/보안 솔루션입니다.',
+    description: `실시간 안면인식으로 방문 이력과 증상·처방 정보를 통합 관리하는 스마트 헬스케어/보안 솔루션입니다. 폐쇄망과 암호화로 개인정보를 보호하면서, 데이터 기반의 맞춤 상담·추천 서비스 확장도 지원합니다.`,
+    features: [
+      '비마커 기반 실시간 얼굴 인식',
+      '방문·증상·처방 이력 통합 조회·시각화',
+      '폐쇄망(Local Network)·암호화 등 개인정보 보호',
+      '데이터 기반 맞춤 상담/추천 서비스 확장',
+    ],
+    tech: ['Deep Learning', 'OpenCV', 'PyTorch', 'On-premise'],
+    cover: `${portfolioBase}face_1.png`,
+    images: [
+      `${portfolioBase}face_1.png`,
+      `${portfolioBase}face_2.png`,
+      `${portfolioBase}face_3.png`,
     ],
   },
   {
@@ -209,6 +323,58 @@ const PlayBadge = () => (
       d="M3 2.5v19l8.5-9.5L3 2.5zm10.2 8.4l3.4-1.9L4.6 2.6l8.6 8.3zm0 2.2l-8.6 8.3L16.6 15l-3.4-1.9zm9-2.6l-4.4-2.5-3.7 4.1 3.7 4.1 4.4-2.5c1-.6 1-2 0-2.7v-.5z"
     />
   </svg>
+);
+
+const GRAPHIC_ICONS = {
+  match: (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <circle cx="12" cy="14" r="5" stroke="currentColor" strokeWidth="2.4" />
+      <circle cx="36" cy="14" r="5" stroke="currentColor" strokeWidth="2.4" />
+      <circle cx="12" cy="34" r="5" stroke="currentColor" strokeWidth="2.4" />
+      <circle cx="36" cy="34" r="5" stroke="currentColor" strokeWidth="2.4" />
+      <path
+        d="M17 14h14M17 34h14M12 19v10M36 19v10M16 18l16 12"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  judge: (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect
+        x="9"
+        y="7"
+        width="30"
+        height="34"
+        rx="4"
+        stroke="currentColor"
+        strokeWidth="2.4"
+      />
+      <path
+        d="M17 18h14M17 25h14M17 32h9"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      <path
+        d="M31.5 34.5l2.5 2.5 5-5.5"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  ),
+};
+
+const GraphicCover = ({ project }) => (
+  <div className={styles.graphicCover}>
+    <div className={styles.graphicIcon}>{GRAPHIC_ICONS[project.graphic]}</div>
+    {project.client && (
+      <span className={styles.graphicClient}>{project.client}</span>
+    )}
+  </div>
 );
 
 const Portfolio = () => {
@@ -283,7 +449,11 @@ const Portfolio = () => {
               onClick={() => open(p)}
               aria-label={`${p.title} 자세히 보기`}
             >
-              <img src={p.cover} alt={p.title} loading="lazy" />
+              {p.cover ? (
+                <img src={p.cover} alt={p.title} loading="lazy" />
+              ) : (
+                <GraphicCover project={p} />
+              )}
               <span
                 className={`${styles.badge} ${
                   p.category === 'app' ? styles.badgeApp : styles.badgeB2B
@@ -368,37 +538,50 @@ const Portfolio = () => {
               </span>
               <h3>{selected.title}</h3>
               <p className={styles.modalTagline}>{selected.tagline}</p>
+              {selected.client && (
+                <p className={styles.modalClient}>{selected.client}</p>
+              )}
               <p className={styles.modalMeta}>
                 {selected.year} · {selected.platform}
               </p>
             </div>
 
-            <div className={styles.slider}>
-              <button
-                type="button"
-                className={`${styles.navBtn} ${styles.navLeft}`}
-                onClick={prev}
-                aria-label="이전"
-              >
-                ‹
-              </button>
-              <img
-                src={selected.images[slide]}
-                alt={`${selected.title} ${slide + 1}`}
-                className={styles.slideImage}
-              />
-              <button
-                type="button"
-                className={`${styles.navBtn} ${styles.navRight}`}
-                onClick={next}
-                aria-label="다음"
-              >
-                ›
-              </button>
-            </div>
-            <p className={styles.counter}>
-              {slide + 1} / {selected.images.length}
-            </p>
+            {selected.images ? (
+              <>
+                <div className={styles.slider}>
+                  <button
+                    type="button"
+                    className={`${styles.navBtn} ${styles.navLeft}`}
+                    onClick={prev}
+                    aria-label="이전"
+                  >
+                    ‹
+                  </button>
+                  <img
+                    src={selected.images[slide]}
+                    alt={`${selected.title} ${slide + 1}`}
+                    className={styles.slideImage}
+                  />
+                  <button
+                    type="button"
+                    className={`${styles.navBtn} ${styles.navRight}`}
+                    onClick={next}
+                    aria-label="다음"
+                  >
+                    ›
+                  </button>
+                </div>
+                <p className={styles.counter}>
+                  {slide + 1} / {selected.images.length}
+                </p>
+              </>
+            ) : (
+              <div className={styles.modalGraphic}>
+                <div className={styles.modalGraphicIcon}>
+                  {GRAPHIC_ICONS[selected.graphic]}
+                </div>
+              </div>
+            )}
 
             <div className={styles.modalDesc}>
               <p>{selected.description}</p>
@@ -452,7 +635,7 @@ const Portfolio = () => {
                   <strong>Google Play</strong>
                 </span>
               </a>
-            ) : (
+            ) : selected.category === 'b2b' ? (
               <button
                 type="button"
                 className={styles.modalCta}
@@ -465,7 +648,7 @@ const Portfolio = () => {
                   <strong>이런 프로젝트가 필요하신가요? 문의하기</strong>
                 </span>
               </button>
-            )}
+            ) : null}
           </div>
         </div>
       )}

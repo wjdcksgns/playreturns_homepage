@@ -4,7 +4,7 @@ import styles from './StatsSection.module.css';
 const stats = [
   { value: '7+', label: 'Years', sub: '2019년부터 쌓아온 경험' },
   { value: '20+', label: 'Projects', sub: 'B2B 수주 · 자체 개발 합산' },
-  { value: '3', label: 'Apps', sub: '리맵 · 사주명 · 스도쿠 출시' },
+  { value: '5', label: 'Apps', sub: '리맵·사주명·스도쿠·펫상·파리살려 출시' },
   { value: '8', label: 'Tech Areas', sub: 'AR/VR · AI · 디지털트윈 외' },
 ];
 
