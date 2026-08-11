@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AdminUpload.module.css';
 import { excelToCsvFile } from './adminUtils';
+import { SNU_API_BASE_URL } from '../../../config/snuApi';
 
-const API_BASE_URL = 'https://api.playreturns.co.kr/snu';
+const API_BASE_URL = SNU_API_BASE_URL;
 
 const AdminUpload = () => {
     const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AdminLogin.module.css';
+import { SNU_API_BASE_URL } from '../../../config/snuApi';
 
 const AdminLogin = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const AdminLogin = () => {
 
         try {
             const res = await fetch(
-                'https://api.playreturns.co.kr/snu/auth/admin/login',
+                `${SNU_API_BASE_URL}/auth/admin/login`,
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
