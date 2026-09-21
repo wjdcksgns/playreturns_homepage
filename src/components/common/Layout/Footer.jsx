@@ -26,6 +26,8 @@ const legalLinks = [
   { to: '/savefly-terms', label: '파리 살려! 이용약관' },
   { to: '/savefly-delete-account', label: '파리 살려! 계정 삭제' },
   { to: '/haemong-privacy', label: '새벽해몽 개인정보처리방침' },
+  { to: '/jeommechu-privacy', label: '점메추 개인정보처리방침' },
+  { to: '/jeommechu-terms', label: '점메추 이용약관' },
 ];
 
 const Footer = () => {

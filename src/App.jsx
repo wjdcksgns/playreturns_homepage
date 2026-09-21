@@ -25,6 +25,8 @@ import SudokuPrivacy from './pages/SudokuPrivacy';
 import SudokuDeleteAccount from './pages/SudokuDeleteAccount';
 import PetsangPrivacy from './pages/PetsangPrivacy';
 import HaemongPrivacy from './pages/HaemongPrivacy';
+import JeommechuPrivacy from './pages/JeommechuPrivacy';
+import JeommechuTerms from './pages/JeommechuTerms';
 import PetsangTerms from './pages/PetsangTerms';
 import PetsangDeleteAccount from './pages/PetsangDeleteAccount';
 import SaveFlyPrivacy from './pages/SaveFlyPrivacy';
@@ -118,6 +120,8 @@ const App = () => {
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
             <Route path="/petsang-privacy" element={<PetsangPrivacy />} />
             <Route path="/haemong-privacy" element={<HaemongPrivacy />} />
+            <Route path="/jeommechu-privacy" element={<JeommechuPrivacy />} />
+            <Route path="/jeommechu-terms" element={<JeommechuTerms />} />
             <Route path="/petsang-terms" element={<PetsangTerms />} />
             <Route path="/petsang-delete-account" element={<PetsangDeleteAccount />} />
             <Route path="/savefly-privacy" element={<SaveFlyPrivacy />} />
