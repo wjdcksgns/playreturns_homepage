@@ -27,6 +27,7 @@ import PetsangPrivacy from './pages/PetsangPrivacy';
 import HaemongPrivacy from './pages/HaemongPrivacy';
 import JeommechuPrivacy from './pages/JeommechuPrivacy';
 import JeommechuTerms from './pages/JeommechuTerms';
+import DanwonPrivacy from './pages/DanwonPrivacy';
 import PetsangTerms from './pages/PetsangTerms';
 import PetsangDeleteAccount from './pages/PetsangDeleteAccount';
 import SaveFlyPrivacy from './pages/SaveFlyPrivacy';
@@ -122,6 +123,7 @@ const App = () => {
             <Route path="/haemong-privacy" element={<HaemongPrivacy />} />
             <Route path="/jeommechu-privacy" element={<JeommechuPrivacy />} />
             <Route path="/jeommechu-terms" element={<JeommechuTerms />} />
+            <Route path="/danwon-privacy" element={<DanwonPrivacy />} />
             <Route path="/petsang-terms" element={<PetsangTerms />} />
             <Route path="/petsang-delete-account" element={<PetsangDeleteAccount />} />
             <Route path="/savefly-privacy" element={<SaveFlyPrivacy />} />
