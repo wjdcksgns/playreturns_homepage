@@ -29,6 +29,7 @@ const legalLinks = [
   { to: '/jeommechu-privacy', label: '점메추 개인정보처리방침' },
   { to: '/jeommechu-terms', label: '점메추 이용약관' },
   { to: '/danwon-privacy', label: '단원 기록 개인정보처리방침' },
+  { to: '/danwon-delete-account', label: '단원 기록 계정 삭제' },
 ];
 
 const Footer = () => {
