@@ -21,6 +21,7 @@ import Privacy from './pages/Privacy';
 import RemapPrivacyEn from './pages/RemapPrivacyEn';
 import RemapTermsEn from './pages/RemapTermsEn';
 import SajuYeonPrivacy from './pages/SajuYeonPrivacy';
+import SajuDeleteAccount from './pages/SajuDeleteAccount';
 import SudokuPrivacy from './pages/SudokuPrivacy';
 import SudokuDeleteAccount from './pages/SudokuDeleteAccount';
 import PetsangPrivacy from './pages/PetsangPrivacy';
@@ -118,6 +119,7 @@ const App = () => {
             <Route path="/remapprivacy-en" element={<RemapPrivacyEn />} />
             <Route path="/terms-en" element={<RemapTermsEn />} />
             <Route path="/sajuprivacy" element={<SajuYeonPrivacy />} />
+            <Route path="/saju-delete-account" element={<SajuDeleteAccount />} />
             <Route path="/sudoku-privacy" element={<SudokuPrivacy />} />
             <Route path="/sudoku-delete-account" element={<SudokuDeleteAccount />} />
             <Route path="/petsang-privacy" element={<PetsangPrivacy />} />
