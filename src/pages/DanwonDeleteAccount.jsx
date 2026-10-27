@@ -3,11 +3,11 @@ import styles from './Privacy.module.css';
 const DanwonDeleteAccount = () => {
     return (
         <div className={styles.privacyWrap}>
-            <h1>단원 기록 계정 삭제 안내</h1>
+            <h1>SNUSR:LOG 계정 삭제 안내</h1>
             <p className={styles.date}>시행일자: 2026년 10월 21일</p>
 
             <p>
-                단원 기록 앱(서울대학교 글로벌사회공헌단, 개발·운영 수탁: 플레이리턴즈)의 계정과 서버에 보관된 기록은 아래 두 가지 방법으로 삭제할 수 있습니다.
+                SNUSR:LOG 앱(이전 이름: 단원 기록. 서울대학교 글로벌사회공헌단, 개발·운영 수탁: 플레이리턴즈)의 계정과 서버에 보관된 기록은 아래 두 가지 방법으로 삭제할 수 있습니다.
             </p>
 
             <h2>1. 앱에서 바로 삭제</h2>
@@ -18,7 +18,7 @@ const DanwonDeleteAccount = () => {
 
             <h2>2. 이메일로 요청</h2>
             <ul>
-                <li>앱을 쓸 수 없는 경우 playreturns2025@gmail.com 으로 "단원 기록 계정 삭제 요청" 제목의 메일을 보내 주세요.</li>
+                <li>앱을 쓸 수 없는 경우 playreturns2025@gmail.com 으로 "SNUSR:LOG 계정 삭제 요청" 제목의 메일을 보내 주세요.</li>
                 <li>본문에 가입한 이메일 주소와 이름을 적어 주세요. 본인 확인을 위해 가입한 이메일 주소에서 보내 주시면 가장 빠릅니다.</li>
                 <li>처리 기간: 요청 접수 후 영업일 기준 7일 이내</li>
             </ul>
