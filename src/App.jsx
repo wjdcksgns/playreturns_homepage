@@ -35,6 +35,9 @@ import PetsangDeleteAccount from './pages/PetsangDeleteAccount';
 import SaveFlyPrivacy from './pages/SaveFlyPrivacy';
 import SaveFlyTerms from './pages/SaveFlyTerms';
 import SaveFlyDeleteAccount from './pages/SaveFlyDeleteAccount';
+import NolipanPrivacy from './pages/NolipanPrivacy';
+import NolipanTerms from './pages/NolipanTerms';
+import NolipanDeleteAccount from './pages/NolipanDeleteAccount';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
@@ -133,6 +136,9 @@ const App = () => {
             <Route path="/savefly-privacy" element={<SaveFlyPrivacy />} />
             <Route path="/savefly-terms" element={<SaveFlyTerms />} />
             <Route path="/savefly-delete-account" element={<SaveFlyDeleteAccount />} />
+            <Route path="/nolipan-privacy" element={<NolipanPrivacy />} />
+            <Route path="/nolipan-terms" element={<NolipanTerms />} />
+            <Route path="/nolipan-delete-account" element={<NolipanDeleteAccount />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
