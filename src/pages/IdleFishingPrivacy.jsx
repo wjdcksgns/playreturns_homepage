@@ -20,6 +20,8 @@ const IdleFishingPrivacy = () => {
                 <li>게임 이용 기록: 게임 진행 상황(어부 레벨, 포인트, 강화, 도감, 어항·아쿠아리움에 넣은 물고기, 장비 등), 랭킹 점수, 길드 소속과 길드전 점수, 친구 목록, 좋아요 기록, 출석·미션·선물 수령 기록</li>
                 <li>채팅 이용 시: 전체·길드·귓속말 메시지 내용과 작성 시각, 신고 기록(신고한 메시지, 신고 사유, 신고자·대상 닉네임)</li>
                 <li>광고 시청 시: 광고 식별자(Android 광고 ID)와 기기 정보 — 앱에 포함된 Google AdMob이 보상형 광고 제공과 광고 효과 측정을 위해 수집합니다</li>
+                <li>앱 이용 기록: 튜토리얼 완료, 레벨 도달, 환생, 희귀 물고기 포획, 광고 시청 결과, 계정 연동·길드 가입 여부 등 게임 이용 통계와 기기 정보(기기 모델, OS 버전, 앱 버전)</li>
+                <li>오류 정보: 앱이 비정상 종료되었을 때의 오류 내용과 기기 정보</li>
                 <li>자동 수집 정보: 서버 접속 기록(접속 시각, 요청 기록)</li>
             </ul>
             <p>앱은 위치 정보, 연락처, 사진을 수집하지 않습니다.</p>
@@ -30,6 +32,8 @@ const IdleFishingPrivacy = () => {
                 <li>랭킹·아쿠아리움 방문·친구·길드·길드전 제공 — 닉네임, 칭호, 레벨, 아쿠아리움 전시 내용과 점수가 다른 이용자에게 표시됩니다</li>
                 <li>채팅 제공, 그리고 신고된 메시지 확인을 통한 욕설·괴롭힘 등 부적절한 이용 대응</li>
                 <li>보상형 광고 제공(광고를 끝까지 본 경우 게임 내 보상 지급)</li>
+                <li>게임 이용 통계 분석을 통한 게임 밸런스·콘텐츠 개선</li>
+                <li>앱 오류 원인 파악 및 수정</li>
                 <li>부정 이용(기록 조작, 비정상 접속 등) 방지 및 서비스 안정성 확보</li>
                 <li>법령 의무 이행 및 분쟁 해결</li>
             </ul>
@@ -39,6 +43,8 @@ const IdleFishingPrivacy = () => {
                 <li>계정 정보, 닉네임, 게임 진행·랭킹·길드 기록: 계정 삭제 요청 시까지</li>
                 <li>채팅 메시지: 계정 삭제 요청 시까지 (게임 화면에는 전체 채팅 1시간, 귓속말 1일 동안만 표시됩니다)</li>
                 <li>신고 기록: 신고 처리 후 1년</li>
+                <li>앱 이용 기록: 수집일로부터 최대 14개월</li>
+                <li>오류 정보: 수집일로부터 90일</li>
                 <li>서버 접속 기록: 최대 30일</li>
                 <li>광고 식별자 등 광고 관련 정보: Google의 개인정보처리방침에 따름</li>
             </ul>
@@ -48,7 +54,7 @@ const IdleFishingPrivacy = () => {
             <p>다만, 서비스 제공을 위해 다음과 같이 처리를 위탁합니다.</p>
             <ul>
                 <li>Microsoft Corporation: 계정, 게임 진행 데이터 저장, 랭킹·친구·길드 기능 운영(Azure PlayFab)</li>
-                <li>Google LLC: 계정 인증(Firebase Authentication), 채팅 데이터 저장(Firebase Realtime Database), 보상형 광고 제공(Google AdMob), 앱 배포(Google Play)</li>
+                <li>Google LLC: 계정 인증(Firebase Authentication), 채팅 데이터 저장(Firebase Realtime Database), 이용 통계 분석(Google Analytics for Firebase), 오류 보고(Firebase Crashlytics), 보상형 광고 제공(Google AdMob), 앱 배포(Google Play)</li>
             </ul>
 
             <h2>5. 개인정보의 국외 이전</h2>
@@ -57,7 +63,7 @@ const IdleFishingPrivacy = () => {
             </p>
             <ul>
                 <li>이전받는 자: Microsoft Corporation (연락처: https://privacy.microsoft.com) — 이전 국가: 미국 / 이전 항목: 계정 ID, 닉네임, 게임 이용 기록</li>
-                <li>이전받는 자: Google LLC (연락처: https://support.google.com) — 이전 국가: 미국, 싱가포르 / 이전 항목: Google 계정 식별자, 닉네임, 채팅 메시지와 신고 기록, 광고 식별자</li>
+                <li>이전받는 자: Google LLC (연락처: https://support.google.com) — 이전 국가: 미국, 싱가포르 / 이전 항목: Google 계정 식별자, 닉네임, 채팅 메시지와 신고 기록, 광고 식별자, 앱 이용 기록, 오류 정보</li>
                 <li>이전 시기 및 방법: 앱 이용 시 네트워크를 통해 암호화 전송</li>
                 <li>이용 목적 및 보유 기간: 위 2항·3항과 같습니다</li>
             </ul>
