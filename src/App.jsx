@@ -38,6 +38,9 @@ import SaveFlyDeleteAccount from './pages/SaveFlyDeleteAccount';
 import NolipanPrivacy from './pages/NolipanPrivacy';
 import NolipanTerms from './pages/NolipanTerms';
 import NolipanDeleteAccount from './pages/NolipanDeleteAccount';
+import IdleFishingPrivacy from './pages/IdleFishingPrivacy';
+import IdleFishingTerms from './pages/IdleFishingTerms';
+import IdleFishingDeleteAccount from './pages/IdleFishingDeleteAccount';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound/NotFound';
 import FloatingContactButton from "./components/FloatingContactButton"; // 경로 맞게 조정
@@ -139,6 +142,9 @@ const App = () => {
             <Route path="/nolipan-privacy" element={<NolipanPrivacy />} />
             <Route path="/nolipan-terms" element={<NolipanTerms />} />
             <Route path="/nolipan-delete-account" element={<NolipanDeleteAccount />} />
+            <Route path="/idlefishing-privacy" element={<IdleFishingPrivacy />} />
+            <Route path="/idlefishing-terms" element={<IdleFishingTerms />} />
+            <Route path="/idlefishing-delete-account" element={<IdleFishingDeleteAccount />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/upload" element={<AdminUpload />} />
