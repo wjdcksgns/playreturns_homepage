@@ -4,7 +4,7 @@ const IdleFishingPrivacy = () => {
     return (
         <div className={styles.privacyWrap}>
             <h1>어부 키우기 개인정보처리방침</h1>
-            <p className={styles.date}>시행일자: 2026년 11월 9일</p>
+            <p className={styles.date}>시행일자: 2026년 11월 14일</p>
 
             <p>
                 플레이리턴즈(이하 "회사")는 이용자의 개인정보를 중요하게 생각하며, 「개인정보 보호법」 및 관련 법령을 준수합니다.
@@ -15,14 +15,15 @@ const IdleFishingPrivacy = () => {
             <h2>1. 수집하는 개인정보 항목</h2>
             <ul>
                 <li>Google 로그인 시: Google 계정 식별자(이메일 주소 등 계정 정보)</li>
+                <li>Apple 로그인 시(iOS): Apple이 제공하는 계정 식별자 — 이름과 이메일 주소는 요청하지 않습니다</li>
                 <li>게스트로 시작 시: 기기에서 무작위로 만든 계정 ID</li>
                 <li>서비스 이용 시: 닉네임(이용자 입력)</li>
                 <li>게임 이용 기록: 게임 진행 상황(어부 레벨, 포인트, 강화, 도감, 어항·아쿠아리움에 넣은 물고기, 장비 등), 물고기 크기 기록, 랭킹 점수, 길드 소속과 길드전 점수, 친구 목록, 좋아요 기록, 출석·미션·선물 수령 기록</li>
                 <li>채팅 이용 시: 전체·길드·귓속말 메시지 내용과 작성 시각, 신고 기록(신고한 메시지, 신고 사유, 신고자·대상 닉네임)</li>
-                <li>광고 시청 시: 광고 식별자(Android 광고 ID)와 기기 정보 — 앱에 포함된 Google AdMob이 보상형 광고 제공과 광고 효과 측정을 위해 수집합니다</li>
+                <li>광고 시청 시: 광고 식별자(Android 광고 ID 등)와 기기 정보 — 앱에 포함된 Google AdMob이 보상형 광고 제공과 광고 효과 측정을 위해 수집합니다</li>
                 <li>앱 이용 기록: 튜토리얼 완료, 레벨 도달, 환생, 희귀 물고기 포획, 광고 시청 결과, 계정 연동·길드 가입 여부 등 게임 이용 통계와 기기 정보(기기 모델, OS 버전, 앱 버전)</li>
                 <li>오류 정보: 앱이 비정상 종료되었을 때의 오류 내용과 기기 정보</li>
-                <li>자동 수집 정보: 서버 접속 기록(접속 시각, 요청 기록)</li>
+                <li>자동 수집 정보: 서버 접속 기록(접속 시각, 요청 기록), 같은 계정의 동시 접속을 막기 위한 접속 세션 정보</li>
             </ul>
             <p>앱은 위치 정보, 연락처, 사진을 수집하지 않습니다.</p>
 
@@ -54,6 +55,7 @@ const IdleFishingPrivacy = () => {
             <p>다만, 서비스 제공을 위해 다음과 같이 처리를 위탁합니다.</p>
             <ul>
                 <li>Microsoft Corporation: 계정, 게임 진행 데이터 저장, 랭킹·친구·길드 기능 운영(Azure PlayFab)</li>
+                <li>Apple Inc.: Apple 로그인 인증(Sign in with Apple), 앱 배포(App Store)</li>
                 <li>Google LLC: 계정 인증(Firebase Authentication), 채팅·어종별 크기 랭킹 데이터 저장(Firebase Realtime Database), 이용 통계 분석(Google Analytics for Firebase), 오류 보고(Firebase Crashlytics), 보상형 광고 제공(Google AdMob), 앱 배포(Google Play)</li>
             </ul>
 
